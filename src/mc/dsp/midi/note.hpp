@@ -6,6 +6,7 @@
 
 namespace mc::dsp {
 
+/// \ingroup group-midi
 enum struct MidiNote : uint8_t
 {};
 

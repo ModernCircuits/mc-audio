@@ -2,4 +2,7 @@
 
 #pragma once
 
+/// \defgroup group-units Units
+/// Unit value types provided by the library.
+
 #include <mc/dsp/units/frequency.hpp>

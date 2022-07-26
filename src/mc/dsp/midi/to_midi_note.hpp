@@ -11,6 +11,7 @@
 namespace mc::dsp {
 
 /// \brief Get MIDI note number for a given frequency
+/// \ingroup group-midi
 template<typename T>
 auto toMidiNote(Hertz<T> frequency) -> MidiNote
 {
@@ -19,6 +20,7 @@ auto toMidiNote(Hertz<T> frequency) -> MidiNote
 }
 
 /// \brief Get MIDI note numbers for given frequencies
+/// \ingroup group-midi
 template<typename T>
 auto toMidiNote(Span<Frequency<T> const> freq, Span<MidiNote> out) -> void
 {

@@ -21,6 +21,8 @@ namespace mc::dsp {
 /// \param binPerOctave Number of bins per octave.
 ///
 /// \return Reference frequency corresponding to A4.
+///
+/// \ingroup group-midi
 template<typename T>
 auto tuningToA4(T tuning, int binPerOctave = 12)
 {
@@ -40,6 +42,8 @@ auto tuningToA4(T tuning, int binPerOctave = 12)
 /// \param binPerOctave Number of bins per octave.
 ///
 /// \return Tuning deviation from A440 in (fractional) bins per octave.
+///
+/// \ingroup group-midi
 template<typename T>
 auto tuningFromA4(Frequency<T> a4, int binPerOctave = 12)
 {
