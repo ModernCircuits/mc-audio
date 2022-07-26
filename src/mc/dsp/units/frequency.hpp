@@ -8,8 +8,8 @@
 
 namespace mc {
 
-/// \brief Type for handling frequencies.
 /// \class Frequency "mc/dsp/units/frequency.hpp" <mc/dsp/units/frequency.hpp>
+/// \brief Type for handling frequencies.
 ///
 /// \code{.cpp}
 /// using Hertz     = mc::Hertz<float>;

@@ -6,8 +6,8 @@
 
 namespace mc::dsp {
 
-/// \brief A MIDI Note.
 /// \class MidiNote "mc/dsp/midi/note.hpp" <mc/dsp/midi/note.hpp>
+/// \brief A MIDI Note.
 /// \example midi-notes.cpp
 /// \ingroup mc-dsp-midi
 struct MidiNote
