@@ -6,8 +6,20 @@
 
 namespace mc::dsp {
 
-/// \ingroup group-midi
-enum struct MidiNote : uint8_t
-{};
+/// \brief A MIDI Note.
+/// \class MidiNote "mc/dsp/midi/note.hpp" <mc/dsp/midi/note.hpp>
+/// \example midi-notes.cpp
+/// \ingroup mc-dsp-midi
+struct MidiNote
+{
+    constexpr MidiNote() = default;
+
+    explicit constexpr MidiNote(uint8_t note) noexcept : _note(note) {}
+
+    [[nodiscard]] explicit constexpr operator uint8_t() const noexcept { return _note; }
+
+private:
+    uint8_t _note{};
+};
 
 }  // namespace mc::dsp

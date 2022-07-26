@@ -11,16 +11,16 @@
 namespace mc::dsp {
 
 /// \brief Get MIDI note number for a given frequency
-/// \ingroup group-midi
+/// \ingroup mc-dsp-midi
 template<typename T>
 auto toMidiNote(Hertz<T> frequency) -> MidiNote
 {
     auto raw = T{12} * (std::log2(frequency.count()) - std::log2(T{440})) + T{69};
-    return static_cast<MidiNote>(std::round(raw));
+    return MidiNote{static_cast<std::uint8_t>(std::round(raw))};
 }
 
 /// \brief Get MIDI note numbers for given frequencies
-/// \ingroup group-midi
+/// \ingroup mc-dsp-midi
 template<typename T>
 auto toMidiNote(Span<Frequency<T> const> freq, Span<MidiNote> out) -> void
 {

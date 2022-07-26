@@ -8,7 +8,7 @@
 
 namespace mc::dsp {
 
-/// \ingroup group-midi
+/// \ingroup mc-dsp-midi
 [[nodiscard]] constexpr auto isBlackNote(MidiNote note) noexcept -> bool
 {
     constexpr auto const notes = Array<bool, 12>{
@@ -25,10 +25,10 @@ namespace mc::dsp {
         true,   // A#
         false,  // B
     };
-    return notes[static_cast<unsigned>(toUnderlying(note)) % 12U];
+    return notes[static_cast<uint8_t>(note) % 12U];
 }
 
-/// \ingroup group-midi
+/// \ingroup mc-dsp-midi
 [[nodiscard]] constexpr auto isWhiteNote(MidiNote note) noexcept -> bool
 {
     return !isBlackNote(note);

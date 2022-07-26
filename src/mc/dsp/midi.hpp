@@ -2,8 +2,9 @@
 
 #pragma once
 
-/// \defgroup group-midi MIDI
-/// MIDI Utilities
+/// \defgroup mc-dsp-midi Midi
+/// Midi Utilities
+/// \ingroup mc-dsp
 
 #include <mc/dsp/midi/keyboard.hpp>
 #include <mc/dsp/midi/note.hpp>

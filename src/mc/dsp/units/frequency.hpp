@@ -9,6 +9,7 @@
 namespace mc {
 
 /// \brief Type for handling frequencies.
+/// \class Frequency "mc/dsp/units/frequency.hpp" <mc/dsp/units/frequency.hpp>
 ///
 /// \code{.cpp}
 /// using Hertz     = mc::Hertz<float>;
@@ -19,18 +20,18 @@ namespace mc {
 /// static_assert(mc::frequencyCast<Hertz>(Kilohertz(1)).count()   == 1000);
 /// \endcode
 ///
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename Rep, typename Period = std::ratio<1>>
 struct Frequency;
 
 /// \brief This trait helps determine if a duration can be
 /// converted to another duration with a different tick period.
 ///
-/// \details Implicit conversions between two durations normally depends on the
-/// tick period of the durations. However, implicit conversions can happen
+/// Implicit conversions between two durations normally depends on the tick
+/// period of the durations. However, implicit conversions can happen
 /// regardless of tick period if `TreatAsFloatingPoint<Rep>::value == true`.
 ///
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename Rep>
 struct TreatAsFloatingPoint;
 
@@ -104,7 +105,8 @@ private:
 };
 
 /// \brief Inplace addition
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep, typename Period>
 constexpr auto operator+=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> const& rhs) noexcept(
     noexcept(std::declval<Rep>() + std::declval<Rep>())
@@ -114,7 +116,8 @@ constexpr auto operator+=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> co
     return lhs;
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep, typename Period>
 constexpr auto operator-=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> const& rhs) noexcept(
     noexcept(std::declval<Rep>() - std::declval<Rep>())
@@ -124,7 +127,8 @@ constexpr auto operator-=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> co
     return lhs;
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep, typename Period>
 constexpr auto operator*=(Frequency<Rep, Period>& lhs, Rep const& rhs) noexcept(
     noexcept(std::declval<Rep>() * std::declval<Rep>())
@@ -143,7 +147,8 @@ constexpr auto operator/=(Frequency<Rep, Period>& lhs, Rep const& rhs) noexcept(
     return lhs;
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator+(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs)
@@ -153,7 +158,8 @@ operator+(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& r
     return CD(CD(lhs).count() + CD(rhs).count());
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator-(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs)
@@ -163,7 +169,8 @@ operator-(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& r
     return CD(CD(lhs).count() - CD(rhs).count());
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period, typename Rep2>
 [[nodiscard]] constexpr auto operator*(Frequency<Rep1, Period> const& d, Rep2 const& s)
     -> Frequency<std::common_type_t<Rep1, Rep2>, Period>
@@ -172,7 +179,8 @@ template<typename Rep1, typename Period, typename Rep2>
     return CD(CD(d).count() * s);
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Rep2, typename Period>
 [[nodiscard]] constexpr auto operator*(Rep1 const& s, Frequency<Rep2, Period> const& d)
     -> Frequency<std::common_type_t<Rep1, Rep2>, Period>
@@ -181,7 +189,8 @@ template<typename Rep1, typename Rep2, typename Period>
     return CD(CD(d).count() * s);
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period, typename Rep2>
 [[nodiscard]] constexpr auto operator/(Frequency<Rep1, Period> const& d, Rep2 const& s)
     -> Frequency<std::common_type_t<Rep1, Rep2>, Period>
@@ -190,7 +199,8 @@ template<typename Rep1, typename Period, typename Rep2>
     return CD(CD(d).count() / s);
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator/(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs)
@@ -200,7 +210,8 @@ operator/(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& r
     return CD(lhs).count() / CD(rhs).count();
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator==(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -209,7 +220,8 @@ operator==(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& 
     return CT(lhs).count() == CT(rhs).count();
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator!=(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -217,7 +229,8 @@ operator!=(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& 
     return !(lhs == rhs);
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator<(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -226,7 +239,8 @@ operator<(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& r
     return CT(lhs).count() < CT(rhs).count();
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator<=(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -234,7 +248,8 @@ operator<=(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& 
     return !(rhs < lhs);
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator>(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -242,7 +257,8 @@ operator>(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& r
     return rhs < lhs;
 }
 
-/// \ingroup group-units
+/// \relates Frequency
+/// \ingroup mc-dsp-units
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 [[nodiscard]] constexpr auto
 operator>=(Frequency<Rep1, Period1> const& lhs, Frequency<Rep2, Period2> const& rhs) -> bool
@@ -363,34 +379,34 @@ template<typename Rep, typename Period>
     return f.count() >= Rep{} ? f : -f;
 }
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T>
 using Hertz = Frequency<T>;
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T>
 using Kilohertz = Frequency<T, std::kilo>;
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T>
 using Megahertz = Frequency<T, std::mega>;
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T>
 using Gigahertz = Frequency<T, std::giga>;
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T>
 using BPM = Frequency<T, std::ratio<1, 60>>;
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T, typename R>
 [[nodiscard]] constexpr auto toHertz(Frequency<T, R> const& f) noexcept
 {
     return frequencyCast<Hertz<T>>(f);
 }
 
-/// \ingroup group-units
+/// \ingroup mc-dsp-units
 template<typename T, typename R>
 [[nodiscard]] constexpr auto toBPM(Frequency<T, R> const& f) noexcept
 {

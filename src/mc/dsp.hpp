@@ -2,5 +2,7 @@
 
 #pragma once
 
+/// \defgroup mc-dsp DSP
+
 #include <mc/dsp/midi.hpp>
 #include <mc/dsp/units.hpp>
