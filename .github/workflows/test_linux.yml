@@ -1,0 +1,49 @@
+name: Linux
+
+on: [push, pull_request]
+
+jobs:
+  gcc:
+    name: GCC
+    strategy:
+      matrix:
+        gcc_version: [10, 11]
+        cxx_std: [14, 17, 20]
+      fail-fast: false
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up GCC
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: "${{ matrix.gcc_version }}"
+          platform: x64
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y ninja-build cmake
+
+      - name: Install conan
+        run: |
+          pip install conan
+          conan config init
+          conan profile update conf.tools.cmake.cmaketoolchain:generator=Ninja default
+
+      - name: Build dependencies
+        run: |
+          conan install -if build --build=missing -pr:b=default -pr:h=default -s compiler.cppstd="${{ matrix.cxx_std }}" -s build_type=Debug .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -s compiler.cppstd="${{ matrix.cxx_std }}" -s build_type=Release .
+
+      - name: Build
+        run: |
+          cmake -S. -Bbuild -G"Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="build/conan_toolchain.cmake" -DCMAKE_CXX_STANDARD="${{ matrix.cxx_std }}" -DMC_CORE_ENABLE_WERROR=ON
+          cmake --build build --config Debug
+          cmake --build build --config Release
+
+      # - name: Test
+      #   run: |
+      #     ctest --test-dir build -C Debug --output-on-failure
+      #     ctest --test-dir build -C Release --output-on-failure

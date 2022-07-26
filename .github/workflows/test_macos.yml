@@ -1,0 +1,51 @@
+name: macOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_test:
+    name: Build & Test
+    strategy:
+      matrix:
+        target:
+          [
+            { "osx": "10.11", "cxx": 14 },
+            { "osx": "10.14", "cxx": 17 },
+            { "osx": "11.0", "cxx": 20 },
+          ]
+      fail-fast: false
+    runs-on: macos-11
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "${{ matrix.target.osx }}"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install ninja
+        run: brew install ninja
+
+      - name: Install conan
+        run: |
+          pip3 install --upgrade conan
+          conan config init
+          conan profile update conf.tools.cmake.cmaketoolchain:generator=Ninja default
+
+      - name: Build dependencies
+        run: |
+          conan install -if build --build=missing -pr:b=default -pr:h=default -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Debug .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Release .
+
+      - name: Build
+        run: |
+          cmake -S. -Bbuild -G"Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE="build/conan_toolchain.cmake" -DCMAKE_CXX_STANDARD="${{ matrix.target.cxx }}" -DMC_CORE_ENABLE_WERROR=ON
+          cmake --build build --config Debug
+          cmake --build build --config Release
+
+      # - name: Test
+      #   run: |
+      #     ctest --test-dir build -C Debug --output-on-failure
+      #     ctest --test-dir build -C Release --output-on-failure
