@@ -2,4 +2,5 @@
 
 #pragma once
 
-#include <mc/dsp/midi.hpp>
+#include <cstddef>
+#include <cstdint>
