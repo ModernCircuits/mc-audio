@@ -6,14 +6,15 @@
 #include <mc/core/math.hpp>
 #include <mc/core/span.hpp>
 #include <mc/dsp/midi/note.hpp>
+#include <mc/dsp/units/frequency.hpp>
 
 namespace mc::dsp {
 
 /// \brief Get MIDI note number for a given frequency
 template<typename T>
-auto toMidiNote(Frequency<T> frequency) -> MidiNote
+auto toMidiNote(Hertz<T> frequency) -> MidiNote
 {
-    auto raw = T{12} * (std::log2(frequency) - std::log2(T{440})) + T{69};
+    auto raw = T{12} * (std::log2(frequency.count()) - std::log2(T{440})) + T{69};
     return static_cast<MidiNote>(std::round(raw));
 }
 

@@ -7,19 +7,21 @@
 #include <mc/core/span.hpp>
 #include <mc/core/type_traits.hpp>
 #include <mc/dsp/midi/note.hpp>
+#include <mc/dsp/units/frequency.hpp>
 
 namespace mc::dsp {
 
 /// \brief Get the frequency of a MIDI note.
 template<typename T>
-auto toHertz(MidiNote note) -> Frequency<T>
+auto toHertz(MidiNote note) -> Hertz<T>
 {
-    return T{440} * std::pow(T{2}, static_cast<T>(toUnderlying(note) - 69) / T{12});
+    auto hz = T{440} * std::pow(T{2}, static_cast<T>(toUnderlying(note) - 69) / T{12});
+    return Hertz<T>{hz};
 }
 
 /// \brief Get the frequency of MIDI notes.
 template<typename T>
-auto toHertz(Span<MidiNote const> notes, Span<Frequency<T>> out) -> void
+auto toHertz(Span<MidiNote const> notes, Span<Hertz<T>> out) -> void
 {
     std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
 }
