@@ -3,6 +3,8 @@
 #include <mc/core.hpp>
 #include <mc/dsp.hpp>
 
+#include <cstdio>
+
 auto main() -> int
 {
     auto notes = mc::Array<mc::dsp::MidiNote, 88>{};
