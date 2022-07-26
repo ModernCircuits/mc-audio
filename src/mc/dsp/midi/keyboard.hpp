@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <mc/core/array.hpp>
 #include <mc/core/type_traits.hpp>
 #include <mc/dsp/midi/note.hpp>
 
@@ -10,8 +11,21 @@ namespace mc::dsp {
 /// \ingroup group-midi
 [[nodiscard]] constexpr auto isBlackNote(MidiNote note) noexcept -> bool
 {
-    auto const noteNumber = static_cast<unsigned>(toUnderlying(note));
-    return ((1U << (noteNumber % 12U)) & 0x054a) != 0U;
+    constexpr auto const notes = Array<bool, 12>{
+        false,  // C
+        true,   // C#
+        false,  // D
+        true,   // D#
+        false,  // E
+        false,  // F
+        true,   // F#
+        false,  // G
+        true,   // G#
+        false,  // A
+        true,   // A#
+        false,  // B
+    };
+    return notes[static_cast<unsigned>(toUnderlying(note)) % 12U];
 }
 
 /// \ingroup group-midi
