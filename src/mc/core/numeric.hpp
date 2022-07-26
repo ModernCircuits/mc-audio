@@ -2,10 +2,9 @@
 
 #pragma once
 
-#include <version>
+#include <numeric>
 
 #if defined(__cpp_lib_gcd_lcm)
-#include <numeric>
 
 namespace mc {
 using std::gcd;
