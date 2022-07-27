@@ -20,7 +20,7 @@ class ModernCircuitsSTL(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.3.2@modern-circuits/stable",
+        "mc-core/0.3.3@modern-circuits/stable",
     ]
 
     @property
