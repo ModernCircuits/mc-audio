@@ -11,7 +11,7 @@ namespace mc::dsp {
 /// \ingroup mc-dsp-midi
 [[nodiscard]] constexpr auto isBlackNote(MidiNote note) noexcept -> bool
 {
-    constexpr auto const notes = Array<bool, 12>{
+    constexpr auto const notes = std::array<bool, 12>{
         false,  // C
         true,   // C#
         false,  // D

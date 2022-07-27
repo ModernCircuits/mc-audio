@@ -3,7 +3,7 @@
 #pragma once
 
 #include <mc/core/algorithm.hpp>
-#include <mc/core/math.hpp>
+#include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
 #include <mc/core/type_traits.hpp>
 #include <mc/dsp/midi/note.hpp>
@@ -25,7 +25,7 @@ auto toHertz(MidiNote note) -> Hertz<T>
 /// \ingroup mc-dsp-midi
 /// \relates MidiNote
 template<typename T>
-auto toHertz(Span<MidiNote const> notes, Span<Hertz<T>> out) -> void
+auto toHertz(span<MidiNote const> notes, span<Hertz<T>> out) -> void
 {
     std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
 }

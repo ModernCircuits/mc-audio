@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <mc/core/types.hpp>
+#include <mc/core/cstdint.hpp>
 
 namespace mc::dsp {
 

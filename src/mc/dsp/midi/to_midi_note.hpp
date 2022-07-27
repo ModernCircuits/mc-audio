@@ -3,7 +3,7 @@
 #pragma once
 
 #include <mc/core/algorithm.hpp>
-#include <mc/core/math.hpp>
+#include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
 #include <mc/dsp/midi/note.hpp>
 #include <mc/dsp/units/frequency.hpp>
@@ -22,7 +22,7 @@ auto toMidiNote(Hertz<T> frequency) -> MidiNote
 /// \brief Get MIDI note numbers for given frequencies
 /// \ingroup mc-dsp-midi
 template<typename T>
-auto toMidiNote(Span<Frequency<T> const> freq, Span<MidiNote> out) -> void
+auto toMidiNote(span<Frequency<T> const> freq, span<MidiNote> out) -> void
 {
     std::transform(begin(freq), end(freq), begin(out), toMidiNote<T>);
 }

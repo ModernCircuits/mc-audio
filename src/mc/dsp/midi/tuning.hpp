@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <mc/core/math.hpp>
+#include <mc/core/cmath.hpp>
 #include <mc/dsp/units/frequency.hpp>
 
 namespace mc::dsp {
