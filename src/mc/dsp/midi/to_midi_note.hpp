@@ -2,11 +2,12 @@
 
 #pragma once
 
+#include <mc/dsp/midi/note.hpp>
+#include <mc/dsp/units/frequency.hpp>
+
 #include <mc/core/algorithm.hpp>
 #include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
-#include <mc/dsp/midi/note.hpp>
-#include <mc/dsp/units/frequency.hpp>
 
 namespace mc::dsp {
 

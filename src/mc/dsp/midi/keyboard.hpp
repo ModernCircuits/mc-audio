@@ -2,9 +2,10 @@
 
 #pragma once
 
+#include <mc/dsp/midi/note.hpp>
+
 #include <mc/core/array.hpp>
 #include <mc/core/type_traits.hpp>
-#include <mc/dsp/midi/note.hpp>
 
 namespace mc::dsp {
 
