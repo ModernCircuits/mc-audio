@@ -16,6 +16,10 @@ class ModernCircuitsSTL(ConanFile):
 
     settings = "os", "compiler", "build_type", "arch"
 
+    requires = [
+        "mc-core/0.3.0@modern-circuits/stable",
+    ]
+
     def set_version(self):
         path = os.path.join(self.recipe_folder, "src/CMakeLists.txt")
         content = load(self, path)
@@ -51,6 +55,3 @@ class ModernCircuitsSTL(ConanFile):
         )
         cmake = CMake(self)
         cmake.install()
-
-    def package_info(self):
-        self.cpp_info.libs = ["dsp"]

@@ -3,6 +3,8 @@
 cmake_minimum_required(VERSION 3.21)
 project(mc-dsp VERSION 0.1.0)
 
+find_package(mc-core REQUIRED)
+
 add_library(mc-dsp INTERFACE)
 add_library(mc::dsp ALIAS mc-dsp)
 
@@ -13,13 +15,18 @@ set_target_properties(mc-dsp
         VERSION "${PROJECT_VERSION}"
         SOVERSION "${PROJECT_VERSION_MAJOR}"
         EXPORT_NAME dsp
-        # OUTPUT_NAME dsp
 )
 
 target_include_directories(mc-dsp
     INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+
+
+target_link_libraries(mc-dsp
+    INTERFACE
+        mc-core::mc-core
 )
 
 install(
