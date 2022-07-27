@@ -31,6 +31,7 @@ jobs:
         run: |
           pip install --upgrade conan
           conan config init
+          conan config set general.revisions_enabled=1
           conan profile update conf.tools.cmake.cmaketoolchain:generator=Ninja default
 
       - name: Build dependencies
@@ -65,6 +66,7 @@ jobs:
         run: |
           pip install --upgrade conan
           conan config init
+          conan config set general.revisions_enabled=1
           conan profile update settings.compiler="Visual Studio" default
           conan profile update settings.compiler.version=17 default
           conan profile update settings.compiler.toolset=ClangCL default

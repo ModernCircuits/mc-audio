@@ -32,6 +32,7 @@ jobs:
         run: |
           pip3 install --upgrade conan
           conan config init
+          conan config set general.revisions_enabled=1
           conan profile update conf.tools.cmake.cmaketoolchain:generator=Ninja default
 
       - name: Build dependencies
