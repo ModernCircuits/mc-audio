@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: BSL-1.0
-
 #pragma once
+
+#include <mc/core/config.hpp>
 
 #include <mc/dsp/midi/note.hpp>
 
@@ -10,7 +11,7 @@
 namespace mc::dsp {
 
 /// \ingroup mc-dsp-midi
-[[nodiscard]] constexpr auto isBlackNote(MidiNote note) noexcept -> bool
+MC_NODISCARD constexpr auto isBlackNote(MidiNote note) noexcept -> bool
 {
     constexpr auto const notes = std::array<bool, 12>{
         false,  // C
@@ -30,9 +31,6 @@ namespace mc::dsp {
 }
 
 /// \ingroup mc-dsp-midi
-[[nodiscard]] constexpr auto isWhiteNote(MidiNote note) noexcept -> bool
-{
-    return !isBlackNote(note);
-}
+MC_NODISCARD constexpr auto isWhiteNote(MidiNote note) noexcept -> bool { return !isBlackNote(note); }
 
 }  // namespace mc::dsp

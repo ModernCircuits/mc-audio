@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <mc/core/config.hpp>
+
 #include <mc/core/cstdint.hpp>
 
 namespace mc::dsp {
@@ -16,7 +18,7 @@ struct MidiNote
 
     explicit constexpr MidiNote(uint8_t note) noexcept : _note(note) {}
 
-    [[nodiscard]] explicit constexpr operator uint8_t() const noexcept { return _note; }
+    MC_NODISCARD explicit constexpr operator uint8_t() const noexcept { return _note; }
 
 private:
     uint8_t _note{};

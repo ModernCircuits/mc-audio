@@ -17,5 +17,8 @@ auto main() -> int
         auto const note  = mc::dsp::toMidiNote(hertz);
         std::printf("note: %d\tfreq: %f\n", static_cast<uint8_t>(note), hertz.count());
     }
+
+    auto svf = mc::dsp::svf::DoubleSampledPeak{};
+    (void)svf;
     return 0;
 }
