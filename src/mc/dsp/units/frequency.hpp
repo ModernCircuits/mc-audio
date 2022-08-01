@@ -53,7 +53,8 @@ private:
     template<typename Rep2, typename Period2>
     using Ctor4 = std::enable_if<
         TreatAsFloatingPoint<Rep>::value
-            || (std::ratio_divide<Period2, Period>::den == 1 && !TreatAsFloatingPoint<Rep2>::value),
+            || (std::ratio_divide<Period2, Period>::den == 1
+                && !TreatAsFloatingPoint<Rep2>::value),
         int>;
 
 public:
@@ -109,9 +110,10 @@ private:
 /// \relates Frequency
 /// \ingroup mc-dsp-units
 template<typename Rep, typename Period>
-constexpr auto operator+=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> const& rhs) noexcept(
-    noexcept(std::declval<Rep>() + std::declval<Rep>())
-) -> Frequency<Rep, Period>&
+constexpr auto operator+=(
+    Frequency<Rep, Period>& lhs,
+    Frequency<Rep, Period> const& rhs
+) noexcept(noexcept(std::declval<Rep>() + std::declval<Rep>())) -> Frequency<Rep, Period>&
 {
     lhs = Frequency<Rep, Period>{lhs.count() + rhs.count()};
     return lhs;
@@ -120,9 +122,10 @@ constexpr auto operator+=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> co
 /// \relates Frequency
 /// \ingroup mc-dsp-units
 template<typename Rep, typename Period>
-constexpr auto operator-=(Frequency<Rep, Period>& lhs, Frequency<Rep, Period> const& rhs) noexcept(
-    noexcept(std::declval<Rep>() - std::declval<Rep>())
-) -> Frequency<Rep, Period>&
+constexpr auto operator-=(
+    Frequency<Rep, Period>& lhs,
+    Frequency<Rep, Period> const& rhs
+) noexcept(noexcept(std::declval<Rep>() - std::declval<Rep>())) -> Frequency<Rep, Period>&
 {
     lhs = Frequency<Rep, Period>{lhs.count() - rhs.count()};
     return lhs;
@@ -276,7 +279,12 @@ template<typename Rep, typename Period>
 struct IsFrequency<mc::Frequency<Rep, Period>> : std::true_type
 {};
 
-template<typename ToFrequency, typename CF, typename CR, bool NumIsOne = false, bool DenIsOne = false>
+template<
+    typename ToFrequency,
+    typename CF,
+    typename CR,
+    bool NumIsOne = false,
+    bool DenIsOne = false>
 struct FrequencyCastImpl
 {
     template<typename Rep, typename Period>
@@ -284,7 +292,8 @@ struct FrequencyCastImpl
     {
         using toRep = typename ToFrequency::rep;
         return ToFrequency(static_cast<toRep>(
-            static_cast<CR>(frequency.count()) * static_cast<CR>(CF::num) / static_cast<CR>(CF::den)
+            static_cast<CR>(frequency.count()) * static_cast<CR>(CF::num)
+            / static_cast<CR>(CF::den)
         ));
     }
 };
@@ -296,9 +305,9 @@ struct FrequencyCastImpl<ToFrequency, CF, CR, true, false>
     constexpr auto operator()(Frequency<Rep, Period> const& frequency) const -> ToFrequency
     {
         using toRep = typename ToFrequency::rep;
-        return ToFrequency(
-            static_cast<toRep>(static_cast<CR>(frequency.count()) / static_cast<CR>(CF::den))
-        );
+        return ToFrequency(static_cast<toRep>(
+            static_cast<CR>(frequency.count()) / static_cast<CR>(CF::den)
+        ));
     }
 };
 
@@ -309,9 +318,9 @@ struct FrequencyCastImpl<ToFrequency, CF, CR, false, true>
     constexpr auto operator()(Frequency<Rep, Period> const& frequency) const -> ToFrequency
     {
         using toRep = typename ToFrequency::rep;
-        return ToFrequency(
-            static_cast<toRep>(static_cast<CR>(frequency.count()) * static_cast<CR>(CF::num))
-        );
+        return ToFrequency(static_cast<toRep>(
+            static_cast<CR>(frequency.count()) * static_cast<CR>(CF::num)
+        ));
     }
 };
 
@@ -358,8 +367,9 @@ MC_NODISCARD constexpr auto ceil(Frequency<Rep, Period> const& f)
 }
 
 template<typename To, typename Rep, typename Period>
-MC_NODISCARD constexpr auto round(Frequency<Rep, Period> const& f) -> std::
-    enable_if_t<detail::IsFrequency<To>::value && !TreatAsFloatingPoint<typename To::rep>::value, To>
+MC_NODISCARD constexpr auto round(Frequency<Rep, Period> const& f) -> std::enable_if_t<
+    detail::IsFrequency<To>::value && !TreatAsFloatingPoint<typename To::rep>::value,
+    To>
 {
     To t0      = floor<To>(f);
     To t1      = t0 + To{1};
