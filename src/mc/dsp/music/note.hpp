@@ -15,13 +15,20 @@ namespace mc::dsp {
 struct Note
 {
     constexpr Note() = default;
+    explicit constexpr Note(uint8_t note) noexcept;
 
-    explicit constexpr Note(uint8_t note) noexcept : _note(note) {}
+    MC_NODISCARD explicit constexpr operator uint8_t() const noexcept;
 
-    MC_NODISCARD explicit constexpr operator uint8_t() const noexcept { return _note; }
+    MC_NODISCARD constexpr auto operator++() noexcept -> Note&;
+    MC_NODISCARD constexpr auto operator++(int) noexcept -> Note;
+
+    MC_NODISCARD constexpr auto operator--() noexcept -> Note&;
+    MC_NODISCARD constexpr auto operator--(int) noexcept -> Note;
 
 private:
-    uint8_t _note{};
+    uint8_t _note{0};
 };
 
 }  // namespace mc::dsp
+
+#include "note.impl.hpp"
