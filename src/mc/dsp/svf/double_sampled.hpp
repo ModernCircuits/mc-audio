@@ -45,14 +45,17 @@ private:
 };
 
 template<typename Derived>
-inline auto DoubleSampled<Derived>::parameter(float fc, float q, float drive, float fs) noexcept
-    -> void
+inline auto
+DoubleSampled<Derived>::parameter(float fc, float q, float drive, float fs) noexcept -> void
 {
     auto const pi = (float)numbers::pi;
 
     // the fs*2 is because it's double sampled
     _freq = 2.0f * std::sin(pi * std::min(0.25f, fc / (fs * 2.0f)));
-    _damp = std::min(2.0f * (1.0f - std::pow(q, 0.25f)), std::min(2.0f, 2.0f / _freq - _freq * 0.5f));
+    _damp = std::min(
+        2.0f * (1.0f - std::pow(q, 0.25f)),
+        std::min(2.0f, 2.0f / _freq - _freq * 0.5f)
+    );
     _drive = drive;
 }
 

@@ -18,8 +18,8 @@ namespace mc::dsp {
 template<typename T>
 auto toHertz(Note note) -> Hertz<T>
 {
-    auto hz = T{440} * std::pow(T{2}, static_cast<T>(static_cast<uint8_t>(note) - 69) / T{12});
-    return Hertz<T>{hz};
+    auto ratio = std::pow(T{2}, static_cast<T>(static_cast<uint8_t>(note) - 69) / T{12});
+    return Hertz<T>{T{440} * ratio};
 }
 
 /// \brief Get the frequency of MIDI notes.

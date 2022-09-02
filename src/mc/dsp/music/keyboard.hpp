@@ -31,6 +31,9 @@ MC_NODISCARD constexpr auto isBlackNote(Note note) noexcept -> bool
 }
 
 /// \ingroup mc-dsp-music
-MC_NODISCARD constexpr auto isWhiteNote(Note note) noexcept -> bool { return !isBlackNote(note); }
+MC_NODISCARD constexpr auto isWhiteNote(Note note) noexcept -> bool
+{
+    return !isBlackNote(note);
+}
 
 }  // namespace mc::dsp

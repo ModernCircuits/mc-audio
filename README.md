@@ -4,5 +4,6 @@
 [![macOS](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_macos.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_macos.yml)
 [![Windows](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_windows.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_windows.yml)
 [![Linux](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_linux.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_linux.yml)
+[![Emscripten](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_emscripten.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_emscripten.yml)
 
 [![Pre-Commit Hooks](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_pre-commit_hooks.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_pre-commit_hooks.yml)
