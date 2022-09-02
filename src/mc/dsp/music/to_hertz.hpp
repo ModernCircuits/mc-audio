@@ -5,10 +5,7 @@
 #include <mc/dsp/music/note.hpp>
 #include <mc/dsp/units/frequency.hpp>
 
-#include <mc/core/algorithm.hpp>
-#include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
-#include <mc/core/type_traits.hpp>
 
 namespace mc::dsp {
 
@@ -16,19 +13,14 @@ namespace mc::dsp {
 /// \ingroup mc-dsp-music
 /// \relates Note
 template<typename T>
-auto toHertz(Note note) -> Hertz<T>
-{
-    auto ratio = std::pow(T{2}, static_cast<T>(static_cast<uint8_t>(note) - 69) / T{12});
-    return Hertz<T>{T{440} * ratio};
-}
+[[nodiscard]] constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
 
 /// \brief Get the frequency of MIDI notes.
 /// \ingroup mc-dsp-music
 /// \relates Note
 template<typename T>
-auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void
-{
-    std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
-}
+constexpr auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void;
 
 }  // namespace mc::dsp
+
+#include "to_hertz.impl.hpp"
