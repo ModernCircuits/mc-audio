@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <mc/dsp/midi/note.hpp>
+#include <mc/dsp/music/note.hpp>
 #include <mc/dsp/units/frequency.hpp>
 
 #include <mc/core/algorithm.hpp>
@@ -13,20 +13,20 @@
 namespace mc::dsp {
 
 /// \brief Get the frequency of a MIDI note.
-/// \ingroup mc-dsp-midi
-/// \relates MidiNote
+/// \ingroup mc-dsp-music
+/// \relates Note
 template<typename T>
-auto toHertz(MidiNote note) -> Hertz<T>
+auto toHertz(Note note) -> Hertz<T>
 {
     auto hz = T{440} * std::pow(T{2}, static_cast<T>(static_cast<uint8_t>(note) - 69) / T{12});
     return Hertz<T>{hz};
 }
 
 /// \brief Get the frequency of MIDI notes.
-/// \ingroup mc-dsp-midi
-/// \relates MidiNote
+/// \ingroup mc-dsp-music
+/// \relates Note
 template<typename T>
-auto toHertz(span<MidiNote const> notes, span<Hertz<T>> out) -> void
+auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void
 {
     std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
 }

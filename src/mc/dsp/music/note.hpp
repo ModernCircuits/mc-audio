@@ -8,15 +8,15 @@
 
 namespace mc::dsp {
 
-/// \class MidiNote "mc/dsp/midi/note.hpp" <mc/dsp/midi/note.hpp>
-/// \brief A MIDI Note.
-/// \example midi-notes.cpp
-/// \ingroup mc-dsp-midi
-struct MidiNote
+/// \class Note "mc/dsp/music/note.hpp" <mc/dsp/music/note.hpp>
+/// \brief A music note.
+/// \example note.cpp
+/// \ingroup mc-dsp-music
+struct Note
 {
-    constexpr MidiNote() = default;
+    constexpr Note() = default;
 
-    explicit constexpr MidiNote(uint8_t note) noexcept : _note(note) {}
+    explicit constexpr Note(uint8_t note) noexcept : _note(note) {}
 
     MC_NODISCARD explicit constexpr operator uint8_t() const noexcept { return _note; }
 

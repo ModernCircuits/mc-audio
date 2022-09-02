@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <mc/dsp/midi/note.hpp>
+#include <mc/dsp/music/note.hpp>
 #include <mc/dsp/units/frequency.hpp>
 
 #include <mc/core/algorithm.hpp>
@@ -12,20 +12,20 @@
 namespace mc::dsp {
 
 /// \brief Get MIDI note number for a given frequency
-/// \ingroup mc-dsp-midi
+/// \ingroup mc-dsp-music
 template<typename T>
-auto toMidiNote(Hertz<T> frequency) -> MidiNote
+auto toNearestNote(Hertz<T> frequency) -> Note
 {
     auto raw = T{12} * (std::log2(frequency.count()) - std::log2(T{440})) + T{69};
-    return MidiNote{static_cast<std::uint8_t>(std::round(raw))};
+    return Note{static_cast<std::uint8_t>(std::round(raw))};
 }
 
 /// \brief Get MIDI note numbers for given frequencies
-/// \ingroup mc-dsp-midi
+/// \ingroup mc-dsp-music
 template<typename T>
-auto toMidiNote(span<Frequency<T> const> freq, span<MidiNote> out) -> void
+auto toNearestNote(span<Frequency<T> const> freq, span<Note> out) -> void
 {
-    std::transform(begin(freq), end(freq), begin(out), toMidiNote<T>);
+    std::transform(begin(freq), end(freq), begin(out), toNearestNote<T>);
 }
 
 }  // namespace mc::dsp
