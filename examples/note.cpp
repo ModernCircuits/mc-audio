@@ -10,7 +10,9 @@ namespace dsp = mc::dsp;
 auto main() -> int
 {
     auto notes = std::array<dsp::Note, 88>{};
-    std::generate(begin(notes), end(notes), [i = uint8_t{0}]() mutable { return dsp::Note{i++}; });
+    std::generate(begin(notes), end(notes), [i = uint8_t{0}]() mutable {
+        return dsp::Note{i++};
+    });
 
     for (auto original : notes) {
         auto const hertz = dsp::toHertz<float>(original);
