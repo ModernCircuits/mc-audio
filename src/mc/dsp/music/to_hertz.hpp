@@ -7,7 +7,8 @@
 
 #include <mc/core/span.hpp>
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 /// \brief Get the frequency of a MIDI note.
 /// \ingroup mc-dsp-music
@@ -21,6 +22,7 @@ template<typename T>
 template<typename T>
 constexpr auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void;
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc
 
-#include "to_hertz.impl.hpp"
+#include "to_hertz.cpp"  // NOLINT

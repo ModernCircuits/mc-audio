@@ -5,7 +5,8 @@
 #include <mc/core/algorithm.hpp>
 #include <mc/core/cmath.hpp>
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 template<typename T>
 constexpr auto toHertz(Note note) noexcept -> Hertz<T>
@@ -20,4 +21,5 @@ constexpr auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void
     std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
 }
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc

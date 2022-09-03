@@ -9,7 +9,8 @@
 #include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 /// \brief Get MIDI note number for a given frequency
 /// \ingroup mc-dsp-music
@@ -28,4 +29,5 @@ auto toNearestNote(span<Frequency<T> const> freq, span<Note> out) -> void
     std::transform(begin(freq), end(freq), begin(out), toNearestNote<T>);
 }
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc

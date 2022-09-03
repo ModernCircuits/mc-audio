@@ -6,7 +6,8 @@
 
 #include <mc/core/cmath.hpp>
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 /// \brief Convert a tuning deviation in fractions of a bin per octave
 /// to a reference pitch frequency relative to A440.
@@ -50,4 +51,5 @@ auto tuningFromA4(Frequency<T> a4, int binPerOctave = 12)
     return static_cast<T>(binPerOctave) * (std::log2(a4) - std::log2(T{440}));
 }
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc

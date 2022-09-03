@@ -6,7 +6,8 @@
 
 #include <mc/core/cstdint.hpp>
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 /// \class Note "mc/dsp/music/note.hpp" <mc/dsp/music/note.hpp>
 /// \brief A music note.
@@ -29,6 +30,7 @@ private:
     uint8_t _note{0};
 };
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc
 
-#include "note.impl.hpp"
+#include "note.cpp"  // NOLINT

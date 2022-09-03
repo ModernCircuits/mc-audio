@@ -2,7 +2,8 @@
 
 #pragma once
 
-namespace mc::dsp {
+namespace mc {
+namespace dsp {
 
 constexpr Note::Note(uint8_t note) noexcept : _note(note) {}
 
@@ -34,4 +35,5 @@ constexpr auto Note::operator--(int) noexcept -> Note
     return old;
 }
 
-}  // namespace mc::dsp
+}  // namespace dsp
+}  // namespace mc
