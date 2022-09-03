@@ -27,7 +27,7 @@ namespace dsp {
 template<typename T>
 auto tuningToA4(T tuning, int binPerOctave = 12)
 {
-    return T{440} * std::pow(T{2}, tuning / static_cast<T>(binPerOctave));
+    return T{440} * pow(T{2}, tuning / static_cast<T>(binPerOctave));
 }
 
 /// \brief Convert a reference pitch frequency to a tuning estimation,
@@ -48,7 +48,7 @@ auto tuningToA4(T tuning, int binPerOctave = 12)
 template<typename T>
 auto tuningFromA4(Frequency<T> a4, int binPerOctave = 12)
 {
-    return static_cast<T>(binPerOctave) * (std::log2(a4) - std::log2(T{440}));
+    return static_cast<T>(binPerOctave) * (log2(a4) - log2(T{440}));
 }
 
 }  // namespace dsp

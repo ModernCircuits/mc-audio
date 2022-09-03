@@ -10,6 +10,10 @@ namespace dsp = mc::dsp;
 TEMPLATE_TEST_CASE("dsp/music: toHertz", "[dsp][music]", float, double)
 {
     using T = TestType;
+
+    static constexpr auto a1 = dsp::toHertz<T>(dsp::Note{33});
+    REQUIRE(a1.count() == Catch::Approx(T(55)));  // A1
+
     REQUIRE(dsp::toHertz<T>(dsp::Note{33}).count() == Catch::Approx(T(55)));   // A1
     REQUIRE(dsp::toHertz<T>(dsp::Note{45}).count() == Catch::Approx(T(110)));  // A2
     REQUIRE(dsp::toHertz<T>(dsp::Note{57}).count() == Catch::Approx(T(220)));  // A3

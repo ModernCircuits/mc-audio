@@ -17,7 +17,7 @@ namespace dsp {
 template<typename T>
 auto toNearestNote(Hertz<T> frequency) -> Note
 {
-    auto raw = T{12} * (std::log2(frequency.count()) - std::log2(T{440})) + T{69};
+    auto raw = T{12} * (log2(frequency.count()) - log2(T{440})) + T{69};
     return Note{static_cast<std::uint8_t>(std::round(raw))};
 }
 
