@@ -13,7 +13,7 @@ namespace dsp {
 
 constexpr auto isBlackKey(Note note) noexcept -> bool
 {
-    constexpr auto const notes = std::array<bool, 12>{
+    constexpr auto const notes = Array<bool, 12>{
         false,  // C
         true,   // C#
         false,  // D

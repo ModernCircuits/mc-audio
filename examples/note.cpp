@@ -6,9 +6,9 @@
 
 namespace dsp = mc::dsp;
 
-auto makePianoNotes() -> std::array<dsp::Note, 88>
+auto makePianoNotes() -> mc::Array<dsp::Note, 88>
 {
-    auto notes = std::array<dsp::Note, 88>{};
+    auto notes = mc::Array<dsp::Note, 88>{};
     std::generate(begin(notes), end(notes), [n = dsp::Note{21}]() mutable { return n++; });
     return notes;
 }
