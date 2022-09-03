@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <mc/core/config.hpp>
+
 #include <mc/dsp/music/note.hpp>
 #include <mc/dsp/units/frequency.hpp>
 
@@ -14,7 +16,7 @@ namespace dsp {
 /// \ingroup mc-dsp-music
 /// \relates Note
 template<typename T>
-[[nodiscard]] constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
+MC_NODISCARD constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
 
 /// \brief Get the frequency of MIDI notes.
 /// \ingroup mc-dsp-music
