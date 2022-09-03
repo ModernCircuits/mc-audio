@@ -24,4 +24,6 @@ target_link_libraries(mc-dsp-tests PRIVATE mc::dsp Catch2::Catch2WithMain)
 target_sources(mc-dsp-tests
     PRIVATE
         "src/mc/dsp/music/keyboard.test.cpp"
+        "src/mc/dsp/music/to_hertz.test.cpp"
+        "src/mc/dsp/music/to_nearest_note.test.cpp"
 )

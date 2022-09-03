@@ -35,5 +35,12 @@ constexpr auto Note::operator--(int) noexcept -> Note
     return old;
 }
 
+constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool
+{
+    return static_cast<uint8_t>(lhs) == static_cast<uint8_t>(rhs);
+}
+
+constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool { return !(lhs == rhs); }
+
 }  // namespace dsp
 }  // namespace mc

@@ -30,6 +30,9 @@ private:
     uint8_t _note{0};
 };
 
+MC_NODISCARD constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
+MC_NODISCARD constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
+
 }  // namespace dsp
 }  // namespace mc
 

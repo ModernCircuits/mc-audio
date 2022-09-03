@@ -15,11 +15,5 @@ constexpr auto toHertz(Note note) noexcept -> Hertz<T>
     return Hertz<T>{T{440} * ratio};
 }
 
-template<typename T>
-constexpr auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void
-{
-    std::transform(begin(notes), end(notes), begin(out), toHertz<T>);
-}
-
 }  // namespace dsp
 }  // namespace mc

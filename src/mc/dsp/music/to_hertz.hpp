@@ -18,12 +18,6 @@ namespace dsp {
 template<typename T>
 MC_NODISCARD constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
 
-/// \brief Get the frequency of MIDI notes.
-/// \ingroup mc-dsp-music
-/// \relates Note
-template<typename T>
-constexpr auto toHertz(span<Note const> notes, span<Hertz<T>> out) -> void;
-
 }  // namespace dsp
 }  // namespace mc
 
