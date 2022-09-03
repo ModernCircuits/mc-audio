@@ -29,6 +29,19 @@ target_link_libraries(mc-dsp
         mc-core::mc-core
 )
 
+if(EMSCRIPTEN)
+    target_compile_options(mc-dsp
+        INTERFACE
+            "SHELL:-s USE_BOOST_HEADERS=1"
+            "SHELL:-s DISABLE_EXCEPTION_CATCHING=0"
+    )
+    target_link_options(mc-dsp
+        INTERFACE
+            "SHELL:-s USE_BOOST_HEADERS=1"
+            "SHELL:-s DISABLE_EXCEPTION_CATCHING=0"
+    )
+endif()
+
 install(
     TARGETS
         "mc-dsp"
