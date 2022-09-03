@@ -11,7 +11,7 @@ from conan.tools.files import copy, load
 from conans.tools import get_env
 
 
-class ModernCircuitsSTL(ConanFile):
+class ModernCircuitsDSP(ConanFile):
     name = "mc-dsp"
     url = "https://github.com/ModernCircuits/mc-dsp"
     description = "Audio DSP Linrary"
@@ -20,7 +20,7 @@ class ModernCircuitsSTL(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.3.4@modern-circuits/stable",
+        "mc-core/0.4.0@modern-circuits/stable",
     ]
 
     @property
