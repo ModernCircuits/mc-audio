@@ -23,7 +23,7 @@ auto main() -> int
             "note: {:03}\t frequency: {:.2f}\t isBlack: {}\n",
             static_cast<uint8_t>(note),
             hertz.count(),
-            dsp::isBlackNote(original)
+            dsp::isBlackKey(original)
         );
     }
 

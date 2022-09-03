@@ -36,7 +36,7 @@ class ModernCircuitsSTL(ConanFile):
 
     def build_requirements(self):
         if self._run_tests:
-            pass
+            self.test_requires("catch2/3.1.0")
 
     def export_sources(self):
         self.copy("CMakeLists.txt")

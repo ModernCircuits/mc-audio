@@ -11,7 +11,7 @@
 namespace mc {
 namespace dsp {
 
-constexpr auto isBlackNote(Note note) noexcept -> bool
+constexpr auto isBlackKey(Note note) noexcept -> bool
 {
     constexpr auto const notes = std::array<bool, 12>{
         false,  // C
@@ -30,7 +30,7 @@ constexpr auto isBlackNote(Note note) noexcept -> bool
     return notes[static_cast<uint8_t>(note) % 12U];
 }
 
-constexpr auto isWhiteNote(Note note) noexcept -> bool { return !isBlackNote(note); }
+constexpr auto isWhiteKey(Note note) noexcept -> bool { return !isBlackKey(note); }
 
 }  // namespace dsp
 }  // namespace mc

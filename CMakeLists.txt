@@ -13,3 +13,15 @@ enable_testing()
 
 add_subdirectory(src)
 add_subdirectory(examples)
+
+find_package(Catch2 REQUIRED)
+include(Catch)
+
+add_executable(mc-dsp-tests)
+catch_discover_tests(mc-dsp-tests)
+target_link_libraries(mc-dsp-tests PRIVATE mc::dsp Catch2::Catch2WithMain)
+
+target_sources(mc-dsp-tests
+    PRIVATE
+        "src/mc/dsp/music/keyboard.test.cpp"
+)

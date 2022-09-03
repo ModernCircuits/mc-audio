@@ -9,10 +9,10 @@ namespace mc {
 namespace dsp {
 
 /// \ingroup mc-dsp-music
-MC_NODISCARD constexpr auto isBlackNote(Note note) noexcept -> bool;
+MC_NODISCARD constexpr auto isBlackKey(Note note) noexcept -> bool;
 
 /// \ingroup mc-dsp-music
-MC_NODISCARD constexpr auto isWhiteNote(Note note) noexcept -> bool;
+MC_NODISCARD constexpr auto isWhiteKey(Note note) noexcept -> bool;
 
 }  // namespace dsp
 }  // namespace mc
