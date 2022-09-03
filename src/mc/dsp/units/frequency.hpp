@@ -8,6 +8,7 @@
 #include <mc/core/type_traits.hpp>
 
 namespace mc {
+namespace dsp {
 
 /// \class Frequency "mc/dsp/units/frequency.hpp" <mc/dsp/units/frequency.hpp>
 /// \brief Type for handling frequencies.
@@ -276,7 +277,7 @@ struct IsFrequency : std::false_type
 {};
 
 template<typename Rep, typename Period>
-struct IsFrequency<mc::Frequency<Rep, Period>> : std::true_type
+struct IsFrequency<Frequency<Rep, Period>> : std::true_type
 {};
 
 template<
@@ -424,12 +425,13 @@ MC_NODISCARD constexpr auto toBPM(Frequency<T, R> const& f) noexcept
     return frequencyCast<BPM<T>>(f);
 }
 
+}  // namespace dsp
 }  // namespace mc
 
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 struct std::common_type<  // NOLINT(readability-identifier-naming)
-    mc::Frequency<Rep1, Period1>,
-    mc::Frequency<Rep2, Period2>>
+    mc::dsp::Frequency<Rep1, Period1>,
+    mc::dsp::Frequency<Rep2, Period2>>
 {
 private:
     static constexpr auto num = mc::gcd(Period1::num, Period2::num);
@@ -437,5 +439,5 @@ private:
     using common_t            = typename std::common_type<Rep1, Rep2>::type;
 
 public:
-    using type = mc::Frequency<common_t, std::ratio<num, den>>;
+    using type = mc::dsp::Frequency<common_t, std::ratio<num, den>>;
 };
