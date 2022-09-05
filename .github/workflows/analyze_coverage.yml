@@ -30,7 +30,7 @@ jobs:
           conan profile update conf.tools.cmake.cmaketoolchain:generator=Ninja default
 
       - name: Run coverage build
-        run: CXX_STD="${{ matrix.target.cxx }}" make coverage-xml
+        run: CXX_STD="${{ matrix.cxx }}" make coverage-xml
 
       - uses: codecov/codecov-action@v3
         with:
