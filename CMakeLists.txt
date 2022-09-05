@@ -22,7 +22,7 @@ include(Catch)
 
 add_executable(mc-dsp-tests)
 catch_discover_tests(mc-dsp-tests)
-target_link_libraries(mc-dsp-tests PRIVATE mc::dsp Catch2::Catch2WithMain mc::code_coverage)
+target_link_libraries(mc-dsp-tests PRIVATE mc::dsp Catch2::Catch2WithMain mc::coverage)
 
 target_sources(mc-dsp-tests
     PRIVATE
