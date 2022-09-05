@@ -31,18 +31,18 @@ check:
 
 .PHONY: coverage
 coverage:
-	conan install -if "cmake-build-coverage" --build=missing -pr:b=default -pr:h=default -e mc-core:CONAN_RUN_TESTS=True -s compiler.cppstd=${CXX_STD} -s build_type=Debug .
-	cd "cmake-build-coverage" && cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD="${CXX_STD}" -DMC_CORE_ENABLE_COVERAGE=TRUE
-	cmake --build "cmake-build-coverage"
-	cd "cmake-build-coverage" && ctest
+	conan install -if cmake-build-coverage --build=missing -pr:b=default -pr:h=default -e mc-dsp:CONAN_RUN_TESTS=True -s compiler.cppstd=${CXX_STD} -s build_type=Debug .
+	cmake .. -DCMAKE_TOOLCHAIN_FILE="cmake-build-coverage/conan_toolchain.cmake" -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD="${CXX_STD}" -DMC_CORE_ENABLE_COVERAGE=TRUE
+	cmake --build cmake-build-coverage
+	ctest --test-dir cmake-build-coverage -C Debug --output-on-failure
 
 .PHONY: coverage-html
 coverage-html: coverage
-	cd cmake-build-coverage && gcovr --html --html-details --exclude-unreachable-branches -o coverage.html -r ../src -j ${shell nproc} -s .
+	gcovr --html --html-details -e ".*test\.cpp" --exclude-unreachable-branches -r src -j ${shell nproc} -s cmake-build-coverage -o cmake-build-coverage/coverage.html
 
 .PHONY: coverage-xml
 coverage-xml: coverage
-	cd cmake-build-coverage && gcovr --xml-pretty --exclude-unreachable-branches -o coverage.xml  -r ../src -j ${shell nproc} -s .
+	gcovr --xml-pretty -e ".*test\.cpp" --exclude-unreachable-branches -r src -j ${shell nproc} -s cmake-build-coverage -o cmake-build-coverage/coverage.xml
 
 
 .PHONY: report
