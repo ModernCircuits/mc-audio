@@ -32,7 +32,7 @@ check:
 .PHONY: coverage
 coverage:
 	conan install -if cmake-build-coverage --build=missing -pr:b=default -pr:h=default -e mc-dsp:CONAN_RUN_TESTS=True -s compiler.cppstd=${CXX_STD} -s build_type=Debug .
-	cmake .. -DCMAKE_TOOLCHAIN_FILE="cmake-build-coverage/conan_toolchain.cmake" -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD="${CXX_STD}" -DMC_CORE_ENABLE_COVERAGE=TRUE
+	cmake .. -D CMAKE_TOOLCHAIN_FILE="cmake-build-coverage/conan_toolchain.cmake" -G Ninja -D CMAKE_BUILD_TYPE=Debug -D CMAKE_CXX_STANDARD="${CXX_STD}" -D MODERNCIRCUITS_ENABLE_COVERAGE=ON
 	cmake --build cmake-build-coverage
 	ctest --test-dir cmake-build-coverage -C Debug --output-on-failure
 
