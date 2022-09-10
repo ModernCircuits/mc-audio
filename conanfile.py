@@ -41,6 +41,7 @@ class ModernCircuitsDSP(ConanFile):
         self.copy("CMakeLists.txt")
         self.copy("src/*")
         self.copy("examples/*")
+        self.copy("cmake/*")
 
     def generate(self):
         tc = CMakeToolchain(self)

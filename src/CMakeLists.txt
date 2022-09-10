@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSL-1.0
 
 cmake_minimum_required(VERSION 3.21)
-project(mc-dsp VERSION 0.3.0)
+project(mc-dsp VERSION 0.4.0)
 
 find_package(mc-core REQUIRED)
 
