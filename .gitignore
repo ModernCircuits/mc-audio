@@ -7,6 +7,7 @@
 .vscode
 
 # Build
+/test_package/build
 /build
 /build_*
 /build-*
