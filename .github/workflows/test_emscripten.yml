@@ -42,7 +42,7 @@ jobs:
           -pr:h="profiles/emscripten.profile"
           -s compiler.cppstd=20
           -s build_type=Release
-          -e mc-dsp:CONAN_RUN_TESTS=True
+          -c user.build:all=True
           .
 
       - name: Build & Test

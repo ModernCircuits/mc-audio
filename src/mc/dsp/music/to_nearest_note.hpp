@@ -24,7 +24,7 @@ auto toNearestNote(Hertz<T> frequency) -> Note
 /// \brief Get MIDI note numbers for given frequencies
 /// \ingroup mc-dsp-music
 template<typename T>
-auto toNearestNote(span<Frequency<T> const> freq, span<Note> out) -> void
+auto toNearestNote(Span<Frequency<T> const> freq, Span<Note> out) -> void
 {
     std::transform(begin(freq), end(freq), begin(out), toNearestNote<T>);
 }

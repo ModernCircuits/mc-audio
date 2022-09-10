@@ -12,7 +12,6 @@
 #include <mc/core/cmath.hpp>
 #include <mc/core/functional.hpp>
 #include <mc/core/numbers.hpp>
-#include <mc/core/span.hpp>
 
 namespace mc {
 namespace dsp {

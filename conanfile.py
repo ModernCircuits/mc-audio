@@ -7,8 +7,7 @@ from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain
 from conan.tools.files import copy, load
 
-# TODO remove when `CONAN_RUN_TESTS` will be replaced with a `[conf]` variable
-from conans.tools import get_env
+required_conan_version = ">=1.50.0"
 
 
 class ModernCircuitsDSP(ConanFile):
@@ -20,12 +19,12 @@ class ModernCircuitsDSP(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.5.0@modern-circuits/stable",
+        "mc-core/0.6.0@modern-circuits/stable",
     ]
 
     @property
-    def _run_tests(self):
-        return get_env("CONAN_RUN_TESTS", False)
+    def _build_all(self):
+        return bool(self.conf["user.build:all"])
 
     def set_version(self):
         path = os.path.join(self.recipe_folder, "src/CMakeLists.txt")
@@ -35,7 +34,7 @@ class ModernCircuitsDSP(ConanFile):
         self.version = ver.strip()
 
     def build_requirements(self):
-        if self._run_tests:
+        if self._build_all:
             self.test_requires("catch2/3.1.0")
 
     def export_sources(self):
@@ -51,9 +50,9 @@ class ModernCircuitsDSP(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(build_script_folder=None if self._run_tests else "src")
+        cmake.configure(build_script_folder=None if self._build_all else "src")
         cmake.build()
-        if self._run_tests:
+        if self._build_all:
             cmake.test()
 
     def package(self):

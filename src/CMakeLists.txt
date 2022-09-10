@@ -26,7 +26,7 @@ target_include_directories(mc-dsp
 
 target_link_libraries(mc-dsp
     INTERFACE
-        mc-core::mc-core
+        mc::core
 )
 
 if(EMSCRIPTEN)

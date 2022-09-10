@@ -31,7 +31,7 @@ check:
 
 .PHONY: coverage
 coverage:
-	conan install -if cmake-build-coverage --build=missing -pr:b=default -pr:h=default -e mc-dsp:CONAN_RUN_TESTS=True -s compiler.cppstd=${CXX_STD} -s build_type=Debug .
+	conan install -if cmake-build-coverage --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd=${CXX_STD} -s build_type=Debug .
 	cmake -S . -B cmake-build-coverage -DCMAKE_TOOLCHAIN_FILE="cmake-build-coverage/conan_toolchain.cmake" -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD="${CXX_STD}" -DMODERNCIRCUITS_ENABLE_COVERAGE=ON
 	cmake --build cmake-build-coverage
 	ctest --test-dir cmake-build-coverage -C Debug --output-on-failure

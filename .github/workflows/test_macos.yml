@@ -41,8 +41,8 @@ jobs:
       - name: Build dependencies
         run: |
           conan remote add modern-circuits https://moderncircuits.jfrog.io/artifactory/api/conan/modern-circuits-conan
-          conan install -if build --build=missing -pr:b=default -pr:h=default -e mc-dsp:CONAN_RUN_TESTS=True -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Debug .
-          conan install -if build --build=missing -pr:b=default -pr:h=default -e mc-dsp:CONAN_RUN_TESTS=True -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Release .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Debug .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.target.cxx }}" -s build_type=Release .
 
       - name: Build
         run: |
