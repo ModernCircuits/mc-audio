@@ -8,21 +8,11 @@ find_package(mc-core REQUIRED)
 add_library(mc-dsp INTERFACE)
 add_library(mc::dsp ALIAS mc-dsp)
 
-set_target_properties(mc-dsp
-    PROPERTIES
-        CXX_VISIBILITY_PRESET hidden
-        VISIBILITY_INLINES_HIDDEN YES
-        VERSION "${PROJECT_VERSION}"
-        SOVERSION "${PROJECT_VERSION_MAJOR}"
-        EXPORT_NAME dsp
-)
-
 target_include_directories(mc-dsp
     INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-
 
 target_link_libraries(mc-dsp
     INTERFACE
@@ -42,45 +32,52 @@ if(EMSCRIPTEN)
     )
 endif()
 
-install(
-    TARGETS
-        "mc-dsp"
-    EXPORT
-        "mc-dsp-targets"
-    LIBRARY DESTINATION
-        "${CMAKE_INSTALL_LIBDIR}"
-    ARCHIVE DESTINATION
-        "${CMAKE_INSTALL_LIBDIR}"
-    RUNTIME DESTINATION
-        "${CMAKE_INSTALL_BINDIR}"
-    INCLUDES DESTINATION
-        "${CMAKE_INSTALL_INCLUDEDIR}"
-)
-
-
+include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    mc-dsp-config-version.cmake
+
+set_target_properties(mc-dsp PROPERTIES
+    CXX_VISIBILITY_PRESET
+        hidden
+    VISIBILITY_INLINES_HIDDEN
+        YES
     VERSION
         ${PROJECT_VERSION}
-    COMPATIBILITY
-        AnyNewerVersion
-)
-
-configure_file(mc-dsp-config.cmake.in mc-dsp-config.cmake @ONLY)
-install(
-    FILES
-        "${CMAKE_CURRENT_BINARY_DIR}/mc-dsp-config.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/mc-dsp-config-version.cmake"
-    DESTINATION
-        "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    SOVERSION
+        ${PROJECT_VERSION_MAJOR}
+    EXPORT_NAME
+        dsp
 )
 
 install(
+    TARGETS
+        mc-dsp
+    EXPORT
+        mc-dsp-targets
+)
+
+export(
     EXPORT
         mc-dsp-targets
     NAMESPACE
         mc::
+)
+
+configure_file("mc-dsp-config.cmake" "." COPYONLY)
+write_basic_package_version_file(mc-dsp-config-version.cmake COMPATIBILITY SameMajorVersion)
+
+install(
+    EXPORT
+        mc-dsp-targets
     DESTINATION
-        "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+        ${CMAKE_INSTALL_LIBDIR}/cmake/mc-dsp
+    NAMESPACE
+        mc::
+)
+
+install(
+    FILES
+        mc-dsp-config.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/mc-dsp-config-version.cmake
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/mc-dsp
 )
