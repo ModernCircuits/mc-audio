@@ -57,10 +57,24 @@ class ModernCircuitsDSP(ConanFile):
 
     def package(self):
         copy(
-            self,
-            "LICENSE.txt",
-            self.source_folder,
-            os.path.join(self.package_folder, "licenses"),
+            conanfile=self,
+            pattern="LICENSE.txt",
+            src=self.source_folder,
+            dst=os.path.join(self.package_folder, "licenses"),
         )
+
+        copy(
+            conanfile=self,
+            pattern="*.hpp",
+            src=os.path.join(self.source_folder, "src"),
+            dst=os.path.join(self.package_folder, "include"),
+        )
+
         cmake = CMake(self)
         cmake.install()
+
+    def package_info(self):
+        self.cpp_info.names["cmake_find_package"] = "mc-dsp"
+        self.cpp_info.names["cmake_find_package_multi"] = "mc-dsp"
+        self.cpp_info.names["pkg_config"] = "mc-dsp"
+        self.cpp_info.set_property("cmake_target_name", "mc::dsp")
