@@ -31,7 +31,7 @@ TEMPLATE_TEST_CASE("dsp/units: toGain", "[dsp][units]", float, double)
     REQUIRE(dsp::toGain(dsp::Decibel{T(-12.04119)}) == Catch::Approx(T(0.25)));
 }
 
-TEMPLATE_TEST_CASE("dsp/units: operator==(Decibel,Decibel)", "[dsp][units]", float, double)
+TEMPLATE_TEST_CASE("dsp/units: compare(Decibel,Decibel)", "[dsp][units]", float, double)
 {
     using T = TestType;
     STATIC_REQUIRE(zeroDB<T> == zeroDB<T>);
