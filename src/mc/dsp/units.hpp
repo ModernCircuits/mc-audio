@@ -6,4 +6,5 @@
 /// Unit value types provided by the library.
 /// \ingroup mc-dsp
 
+#include <mc/dsp/units/decibel.hpp>
 #include <mc/dsp/units/frequency.hpp>
