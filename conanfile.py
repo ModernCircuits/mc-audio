@@ -19,7 +19,7 @@ class ModernCircuitsDSP(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.7.0@modern-circuits/stable",
+        "mc-core/0.8.0@modern-circuits/stable",
     ]
 
     @property
