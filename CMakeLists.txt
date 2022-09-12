@@ -16,13 +16,22 @@ add_subdirectory(examples)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake)
 include(code_coverage)
+include(compiler_options)
+include(compiler_warnings)
 
 find_package(Catch2 REQUIRED)
 include(Catch)
 
 add_executable(mc-dsp-tests)
 catch_discover_tests(mc-dsp-tests)
-target_link_libraries(mc-dsp-tests PRIVATE mc::dsp Catch2::Catch2WithMain mc::coverage)
+target_link_libraries(mc-dsp-tests
+    PRIVATE
+        Catch2::Catch2WithMain
+        mc::dsp
+        mc::coverage
+        mc::compiler_options
+        mc::compiler_warnings
+)
 
 target_sources(mc-dsp-tests
     PRIVATE
