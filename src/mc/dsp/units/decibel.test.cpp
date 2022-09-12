@@ -22,3 +22,14 @@ TEMPLATE_TEST_CASE("dsp/units: toGain", "[dsp][units]", float, double)
     REQUIRE(dsp::toGain(dsp::Decibel{T(-6.02059)}) == Catch::Approx(T(0.5)));
     REQUIRE(dsp::toGain(dsp::Decibel{T(-12.04119)}) == Catch::Approx(T(0.25)));
 }
+
+TEMPLATE_TEST_CASE("dsp/units: operator==(Decibel,Decibel)", "[dsp][units]", float, double)
+{
+    using T = TestType;
+    REQUIRE(dsp::Decibel{T(0)} == dsp::Decibel{T(0)});
+    REQUIRE(dsp::Decibel{T(0)} != dsp::Decibel{T(1)});
+    REQUIRE(dsp::Decibel{T(0)} < dsp::Decibel{T(1)});
+    REQUIRE(dsp::Decibel{T(0)} <= dsp::Decibel{T(1)});
+    REQUIRE_FALSE(dsp::Decibel{T(0)} > dsp::Decibel{T(1)});
+    REQUIRE_FALSE(dsp::Decibel{T(0)} >= dsp::Decibel{T(1)});
+}

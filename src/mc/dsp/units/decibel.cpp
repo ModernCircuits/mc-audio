@@ -27,5 +27,41 @@ constexpr auto toGain(Decibel<T> dB) noexcept -> T
     return pow(T(10), dB.count() * T(0.05));
 }
 
+template<typename T>
+constexpr auto operator==(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() == rhs.count();
+}
+
+template<typename T>
+constexpr auto operator!=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() != rhs.count();
+}
+
+template<typename T>
+constexpr auto operator<(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() < rhs.count();
+}
+
+template<typename T>
+constexpr auto operator<=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() <= rhs.count();
+}
+
+template<typename T>
+constexpr auto operator>(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() > rhs.count();
+}
+
+template<typename T>
+constexpr auto operator>=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
+{
+    return lhs.count() >= rhs.count();
+}
+
 }  // namespace dsp
 }  // namespace mc
