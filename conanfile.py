@@ -18,9 +18,7 @@ class ModernCircuitsDSP(ConanFile):
 
     settings = "os", "compiler", "build_type", "arch"
 
-    requires = [
-        "mc-core/0.8.0@modern-circuits/stable",
-    ]
+    requires = ["mc-core/0.9.0@modern-circuits/stable"]
 
     @property
     def _build_all(self):
