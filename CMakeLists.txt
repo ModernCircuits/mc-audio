@@ -39,4 +39,5 @@ target_sources(mc-dsp-tests
         "src/mc/dsp/music/to_hertz.test.cpp"
         "src/mc/dsp/music/to_nearest_note.test.cpp"
         "src/mc/dsp/units/decibel.test.cpp"
+        "src/mc/dsp/units/frequency.test.cpp"
 )

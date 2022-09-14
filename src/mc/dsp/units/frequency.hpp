@@ -45,18 +45,15 @@ template<typename Rep, typename Period>
 struct Frequency
 {
 private:
-    template<typename Rep2>
-    using Ctor3 = std::enable_if<
-        std::is_convertible<Rep2, Rep>::value
-            && (TreatAsFloatingPoint<Rep>::value || !TreatAsFloatingPoint<Rep2>::value),
-        int>;
+    template<typename R2>
+    static constexpr bool ctor3
+        = std::is_convertible<R2, Rep>::value
+       && (TreatAsFloatingPoint<Rep>::value || !TreatAsFloatingPoint<R2>::value);
 
-    template<typename Rep2, typename Period2>
-    using Ctor4 = std::enable_if<
-        TreatAsFloatingPoint<Rep>::value
-            || (std::ratio_divide<Period2, Period>::den == 1
-                && !TreatAsFloatingPoint<Rep2>::value),
-        int>;
+    template<typename R2, typename P2>
+    static constexpr bool ctor4
+        = TreatAsFloatingPoint<Rep>::value
+       || (std::ratio_divide<P2, Period>::den == 1 && !TreatAsFloatingPoint<R2>::value);
 
 public:
     using rep    = Rep;
@@ -64,6 +61,8 @@ public:
 
     /// \brief Default constructor.
     constexpr Frequency() noexcept = default;
+
+    constexpr Frequency(Frequency const&) noexcept = default;
 
     /// \brief Constructs a Frequency with r ticks.
     ///
@@ -76,19 +75,19 @@ public:
     /// (that is, a Frequency with an integer tick count cannot be
     /// constructed from a floating-point value, but a Frequency with a
     /// floating-point tick count can be constructed from an integer value)
-    template<typename Rep2, typename Ctor3<Rep2>::type = 0>
-    constexpr explicit Frequency(Rep2 const& r) : ticks_(r)
+    template<typename Rep2, std::enable_if_t<ctor3<Rep2>, bool> = true>
+    constexpr explicit Frequency(Rep2 const& r) : _count(r)
     {}
 
     /// \brief Constructs a Frequency by converting d to an appropriate period
     /// and tick count.
-    template<typename Rep2, typename Period2, typename Ctor4<Rep2, Period2>::type = 0>
-    constexpr Frequency(Frequency<Rep2, Period2> const& other)
-        : ticks_(static_cast<Rep>(other.count() * std::ratio_divide<Period2, period>::num))
+    template<typename R2, typename P2, std::enable_if_t<ctor4<R2, P2>, bool> = true>
+    constexpr Frequency(Frequency<R2, P2> const& other)
+        : _count(static_cast<Rep>(other.count() * std::ratio_divide<P2, period>::num))
     {}
 
     /// \brief Returns the number of ticks for this Frequency.
-    MC_NODISCARD constexpr auto count() const noexcept -> rep { return ticks_; }
+    MC_NODISCARD constexpr auto count() const noexcept -> rep { return _count; }
 
     /// \brief Returns a copy of this Frequency object
     MC_NODISCARD constexpr auto operator+() const -> std::common_type_t<Frequency>
@@ -100,11 +99,11 @@ public:
     /// ticks negated.
     MC_NODISCARD constexpr auto operator-() const -> std::common_type_t<Frequency>
     {
-        return std::common_type_t<Frequency>(-ticks_);
+        return std::common_type_t<Frequency>(-_count);
     }
 
 private:
-    Rep ticks_{0};
+    Rep _count{0};
 };
 
 /// \brief Inplace addition
