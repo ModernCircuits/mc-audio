@@ -7,3 +7,5 @@
 [![Emscripten](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_emscripten.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/test_emscripten.yml)
 
 [![Pre-Commit Hooks](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_pre-commit_hooks.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_pre-commit_hooks.yml)
+[![Coverage](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_coverage.yml/badge.svg)](https://github.com/ModernCircuits/mc-dsp/actions/workflows/analyze_coverage.yml)
+[![codecov](https://codecov.io/gh/ModernCircuits/mc-dsp/branch/main/graph/badge.svg?token=5KSVLLAN12)](https://codecov.io/gh/ModernCircuits/mc-dsp)
