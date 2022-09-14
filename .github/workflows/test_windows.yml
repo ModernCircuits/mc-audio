@@ -11,7 +11,8 @@ jobs:
     name: CL
     strategy:
       matrix:
-        cxx: [17, 20]
+        cxx: [17, 20, 23]
+        build_mode: ["Debug", "Release"]
       fail-fast: false
     runs-on: windows-2022
     steps:
@@ -39,7 +40,7 @@ jobs:
       - name: Build dependencies
         run: |
           conan remote add modern-circuits https://moderncircuits.jfrog.io/artifactory/api/conan/modern-circuits-conan
-          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.cxx }}" -s build_type=Release .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.cxx }}" -s build_type="${{ matrix.build_mode }}" .
 
       - name: Build & Test
         run: |
@@ -50,6 +51,7 @@ jobs:
     strategy:
       matrix:
         cxx: [17, 20, 23]
+        build_mode: ["Debug", "Release"]
       fail-fast: false
     runs-on: windows-2022
     steps:
@@ -82,7 +84,7 @@ jobs:
       - name: Build dependencies
         run: |
           conan remote add modern-circuits https://moderncircuits.jfrog.io/artifactory/api/conan/modern-circuits-conan
-          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.cxx }}" -s build_type=Release .
+          conan install -if build --build=missing -pr:b=default -pr:h=default -c user.build:all=True -s compiler.cppstd="${{ matrix.cxx }}" -s build_type="${{ matrix.build_mode }}" .
 
       - name: Build & Test
         run: |
