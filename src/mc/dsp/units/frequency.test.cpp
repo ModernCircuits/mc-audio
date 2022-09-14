@@ -11,11 +11,11 @@ TEMPLATE_TEST_CASE("dsp/units: Frequency", "[dsp][units]", float, double)  // NO
 {
     using T = TestType;
 
-    static constexpr auto const zero = dsp::Hertz<T>{0};
+    static constexpr auto const zero = dsp::Hertz<T>{T(0)};
     REQUIRE(zero.count() == T(0));
     REQUIRE(dsp::Kilohertz<T>{zero}.count() == T(0));
 
-    static constexpr auto const kilo = dsp::Hertz<T>{1'000};
+    static constexpr auto const kilo = dsp::Hertz<T>{T(1'000)};
     REQUIRE(kilo.count() == T(1'000));
     REQUIRE(dsp::frequencyCast<dsp::Kilohertz<T>>(kilo).count() == T(1));
 }
