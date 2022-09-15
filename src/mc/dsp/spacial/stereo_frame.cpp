@@ -3,8 +3,7 @@
 
 #include <mc/core/config.hpp>
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 template<typename T>
 constexpr auto operator+(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept -> StereoFrame<T>
@@ -138,5 +137,4 @@ constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>
     return lhs;
 }
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp

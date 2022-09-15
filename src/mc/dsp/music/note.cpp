@@ -2,8 +2,7 @@
 
 #pragma once
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 constexpr Note::Note(uint8_t note) noexcept : _note(note) {}
 
@@ -42,8 +41,7 @@ constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool
 
 constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool { return !(lhs == rhs); }
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
 
 constexpr auto fmt::formatter<mc::dsp::Note>::parse(format_parse_context& ctx)
     -> decltype(ctx.begin())

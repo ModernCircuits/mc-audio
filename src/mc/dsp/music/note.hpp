@@ -7,8 +7,7 @@
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 /// \class Note "mc/dsp/music/note.hpp" <mc/dsp/music/note.hpp>
 /// \brief A music note.
@@ -34,8 +33,7 @@ private:
 [[nodiscard]] constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
 [[nodiscard]] constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
 
 template<>
 struct fmt::formatter<mc::dsp::Note>

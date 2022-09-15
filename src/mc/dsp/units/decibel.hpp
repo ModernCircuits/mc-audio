@@ -6,8 +6,7 @@
 
 #include <mc/core/cmath.hpp>
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 template<typename T>
 struct Decibel
@@ -45,7 +44,6 @@ template<typename T>
 template<typename T>
 [[nodiscard]] constexpr auto operator>=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
 
 #include "decibel.cpp"  // NOLINT

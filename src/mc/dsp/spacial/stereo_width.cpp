@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: BSL-1.0
 #pragma once
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 template<typename T>
 constexpr StereoWidth<T>::StereoWidth(T initialWidth) noexcept
@@ -34,5 +33,4 @@ template<typename T>
         mid + side,
     };
 }
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp

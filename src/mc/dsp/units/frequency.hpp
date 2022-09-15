@@ -7,8 +7,7 @@
 #include <mc/core/ratio.hpp>
 #include <mc/core/type_traits.hpp>
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 /// \class Frequency "mc/dsp/units/frequency.hpp" <mc/dsp/units/frequency.hpp>
 /// \brief Type for handling frequencies.
@@ -424,8 +423,7 @@ template<typename T, typename R>
     return frequencyCast<BPM<T>>(f);
 }
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
 
 template<typename Rep1, typename Period1, typename Rep2, typename Period2>
 struct std::common_type<  // NOLINT(readability-identifier-naming)

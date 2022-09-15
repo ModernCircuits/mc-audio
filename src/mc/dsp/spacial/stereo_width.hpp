@@ -5,8 +5,7 @@
 
 #include <mc/dsp/spacial/stereo_frame.hpp>
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 template<typename T>
 struct StereoWidth
 {
@@ -24,7 +23,6 @@ private:
     T _width{1.0};
     T _coeff{_width * T(0.5)};
 };
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
 
 #include "stereo_width.cpp"  // NOLINT

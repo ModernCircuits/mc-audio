@@ -2,8 +2,7 @@
 
 #pragma once
 
-namespace mc {
-namespace dsp {
+namespace mc::dsp {
 
 template<typename T>
 constexpr Decibel<T>::Decibel(T v) noexcept : _count{v}
@@ -63,5 +62,4 @@ constexpr auto operator>=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool
     return lhs.count() >= rhs.count();
 }
 
-}  // namespace dsp
-}  // namespace mc
+}  // namespace mc::dsp
