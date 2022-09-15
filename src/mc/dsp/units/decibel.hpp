@@ -15,35 +15,35 @@ struct Decibel
     constexpr Decibel() noexcept = default;
     constexpr explicit Decibel(T v) noexcept;
 
-    MC_NODISCARD constexpr auto count() const noexcept -> T;
+    [[nodiscard]] constexpr auto count() const noexcept -> T;
 
 private:
     T _count{};
 };
 
 template<typename T>
-MC_NODISCARD constexpr auto toDecibel(T gain) noexcept -> Decibel<T>;
+[[nodiscard]] constexpr auto toDecibel(T gain) noexcept -> Decibel<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto toGain(Decibel<T> dB) noexcept -> T;
+[[nodiscard]] constexpr auto toGain(Decibel<T> dB) noexcept -> T;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator==(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator==(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator!=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator!=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator<(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator<(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator<=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator<=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator>(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator>(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator>=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator>=(Decibel<T> lhs, Decibel<T> rhs) noexcept -> bool;
 
 }  // namespace dsp
 }  // namespace mc

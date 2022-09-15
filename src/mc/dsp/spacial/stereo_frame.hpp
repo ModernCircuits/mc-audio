@@ -15,63 +15,67 @@ struct StereoFrame
 };
 
 template<typename T>
-MC_NODISCARD constexpr auto operator+(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator+(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator-(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator-(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator*(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator*(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator/(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator/(StereoFrame<T> lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator+(StereoFrame<T> lhs, T rhs) noexcept -> StereoFrame<T>;
+[[nodiscard]] constexpr auto operator+(StereoFrame<T> lhs, T rhs) noexcept
+    -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator-(StereoFrame<T> lhs, T rhs) noexcept -> StereoFrame<T>;
+[[nodiscard]] constexpr auto operator-(StereoFrame<T> lhs, T rhs) noexcept
+    -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator*(StereoFrame<T> lhs, T rhs) noexcept -> StereoFrame<T>;
+[[nodiscard]] constexpr auto operator*(StereoFrame<T> lhs, T rhs) noexcept
+    -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator/(StereoFrame<T> lhs, T rhs) noexcept -> StereoFrame<T>;
+[[nodiscard]] constexpr auto operator/(StereoFrame<T> lhs, T rhs) noexcept
+    -> StereoFrame<T>;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator+=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator+=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator-=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator-=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator*=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator*=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator/=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+[[nodiscard]] constexpr auto operator/=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator+=(StereoFrame<T>& lhs, T rhs) noexcept
+[[nodiscard]] constexpr auto operator+=(StereoFrame<T>& lhs, T rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator-=(StereoFrame<T>& lhs, T rhs) noexcept
+[[nodiscard]] constexpr auto operator-=(StereoFrame<T>& lhs, T rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator*=(StereoFrame<T>& lhs, T rhs) noexcept
+[[nodiscard]] constexpr auto operator*=(StereoFrame<T>& lhs, T rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-MC_NODISCARD constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept
+[[nodiscard]] constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept
     -> StereoFrame<T>&;
 
 }  // namespace dsp

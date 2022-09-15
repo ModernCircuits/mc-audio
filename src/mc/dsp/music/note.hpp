@@ -19,20 +19,20 @@ struct Note
     constexpr Note() = default;
     explicit constexpr Note(uint8_t note) noexcept;
 
-    MC_NODISCARD explicit constexpr operator uint8_t() const noexcept;
+    [[nodiscard]] explicit constexpr operator uint8_t() const noexcept;
 
-    MC_NODISCARD constexpr auto operator++() noexcept -> Note&;
-    MC_NODISCARD constexpr auto operator++(int) noexcept -> Note;
+    [[nodiscard]] constexpr auto operator++() noexcept -> Note&;
+    [[nodiscard]] constexpr auto operator++(int) noexcept -> Note;
 
-    MC_NODISCARD constexpr auto operator--() noexcept -> Note&;
-    MC_NODISCARD constexpr auto operator--(int) noexcept -> Note;
+    [[nodiscard]] constexpr auto operator--() noexcept -> Note&;
+    [[nodiscard]] constexpr auto operator--(int) noexcept -> Note;
 
 private:
     uint8_t _note{0};
 };
 
-MC_NODISCARD constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
-MC_NODISCARD constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
 
 }  // namespace dsp
 }  // namespace mc

@@ -18,13 +18,13 @@ constexpr auto StereoWidth<T>::width(T newWidth) noexcept -> void
 }
 
 template<typename T>
-MC_NODISCARD constexpr auto StereoWidth<T>::width() const noexcept -> T
+[[nodiscard]] constexpr auto StereoWidth<T>::width() const noexcept -> T
 {
     return _width;
 }
 
 template<typename T>
-MC_NODISCARD constexpr auto StereoWidth<T>::operator()(StereoFrame<T> in) -> StereoFrame<T>
+[[nodiscard]] constexpr auto StereoWidth<T>::operator()(StereoFrame<T> in) -> StereoFrame<T>
 {
     auto const mid  = (in.left + in.right) * 0.5F;
     auto const side = (in.right - in.left) * _coeff;

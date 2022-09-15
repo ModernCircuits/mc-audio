@@ -9,7 +9,7 @@
 namespace mc {
 namespace dsp {
 template<typename SampleType>
-MC_NODISCARD constexpr auto toStereo(MidSideFrame<SampleType> frame) noexcept
+[[nodiscard]] constexpr auto toStereo(MidSideFrame<SampleType> frame) noexcept
     -> StereoFrame<SampleType>
 {
     auto const gain = static_cast<SampleType>(0.707946);  // -3dB

@@ -16,7 +16,7 @@ namespace dsp {
 /// \ingroup mc-dsp-music
 /// \relates Note
 template<typename T>
-MC_NODISCARD constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
+[[nodiscard]] constexpr auto toHertz(Note note) noexcept -> Hertz<T>;
 
 }  // namespace dsp
 }  // namespace mc

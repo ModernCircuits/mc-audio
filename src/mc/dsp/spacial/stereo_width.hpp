@@ -16,9 +16,9 @@ struct StereoWidth
     explicit constexpr StereoWidth(T initialWidth) noexcept;
 
     constexpr auto width(T newWidth) noexcept -> void;
-    MC_NODISCARD constexpr auto width() const noexcept -> T;
+    [[nodiscard]] constexpr auto width() const noexcept -> T;
 
-    MC_NODISCARD constexpr auto operator()(StereoFrame<T> in) -> StereoFrame<T>;
+    [[nodiscard]] constexpr auto operator()(StereoFrame<T> in) -> StereoFrame<T>;
 
 private:
     T _width{1.0};
