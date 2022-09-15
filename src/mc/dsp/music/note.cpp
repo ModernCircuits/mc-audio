@@ -44,3 +44,22 @@ constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool { return !(lhs ==
 
 }  // namespace dsp
 }  // namespace mc
+
+constexpr auto fmt::formatter<mc::dsp::Note>::parse(format_parse_context& ctx)
+    -> decltype(ctx.begin())
+{
+    auto it  = ctx.begin();
+    auto end = ctx.end();
+    if (it != end && (*it == 'n' || *it == 'h')) { presentation = *it++; }
+    if (it != end && *it != '}') { throw format_error("invalid format"); }
+    return it;
+}
+
+template<typename FormatContext>
+auto fmt::formatter<mc::dsp::Note>::format(mc::dsp::Note const& note, FormatContext& ctx)
+    const -> decltype(ctx.out())
+{
+    auto number = static_cast<std::uint8_t>(note);
+    if (presentation == 'n') { return fmt::format_to(ctx.out(), "{}", number); }
+    return fmt::format_to(ctx.out(), "{}", number);
+}

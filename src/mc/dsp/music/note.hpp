@@ -5,6 +5,7 @@
 #include <mc/core/config.hpp>
 
 #include <mc/core/cstdint.hpp>
+#include <mc/core/format.hpp>
 
 namespace mc {
 namespace dsp {
@@ -35,5 +36,17 @@ MC_NODISCARD constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
 
 }  // namespace dsp
 }  // namespace mc
+
+template<>
+struct fmt::formatter<mc::dsp::Note>
+{
+    constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin());
+
+    template<typename FormatContext>
+    auto format(mc::dsp::Note const& note, FormatContext& ctx) const -> decltype(ctx.out());
+
+    // Presentation format: 'n' - number, 'h' - human.
+    char presentation = 'n';
+};
 
 #include "note.cpp"  // NOLINT
