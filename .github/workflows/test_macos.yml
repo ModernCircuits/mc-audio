@@ -11,12 +11,7 @@ jobs:
     name: Build & Test
     strategy:
       matrix:
-        target:
-          [
-            { "osx": "10.11", "cxx": 14 },
-            { "osx": "10.14", "cxx": 17 },
-            { "osx": "11.0", "cxx": 20 },
-          ]
+        target: [{ "osx": "10.14", "cxx": 17 }, { "osx": "11.0", "cxx": 20 }]
       fail-fast: false
     runs-on: macos-11
     env:

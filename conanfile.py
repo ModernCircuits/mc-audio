@@ -13,12 +13,12 @@ required_conan_version = ">=1.50.0"
 class ModernCircuitsDSP(ConanFile):
     name = "mc-dsp"
     url = "https://github.com/ModernCircuits/mc-dsp"
-    description = "Audio DSP Linrary"
+    description = "Audio DSP Library"
     license = "BSL-1.0"
 
     settings = "os", "compiler", "build_type", "arch"
 
-    requires = ["mc-core/0.9.0@modern-circuits/stable"]
+    requires = ["mc-core/0.10.0@modern-circuits/stable"]
 
     @property
     def _build_all(self):

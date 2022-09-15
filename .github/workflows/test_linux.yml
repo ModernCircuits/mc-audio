@@ -7,7 +7,7 @@ jobs:
     name: GCC
     strategy:
       matrix:
-        cxx_std: [14, 17, 20]
+        cxx_std: [17, 20, 23]
         build_mode: ["Debug", "Release"]
       fail-fast: false
     runs-on: ubuntu-22.04
@@ -17,12 +17,6 @@ jobs:
         with:
           submodules: recursive
           lfs: true
-
-      - name: Set up GCC
-        uses: egor-tensin/setup-gcc@v1
-        with:
-          version: 11
-          platform: x64
 
       - name: Install system dependencies
         run: |
