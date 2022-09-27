@@ -10,15 +10,15 @@ from conan.tools.files import copy, load
 required_conan_version = ">=1.50.0"
 
 
-class ModernCircuitsDSP(ConanFile):
-    name = "mc-dsp"
-    url = "https://github.com/ModernCircuits/mc-dsp"
+class ModernCircuitsAudio(ConanFile):
+    name = "mc-audio"
+    url = "https://github.com/ModernCircuits/mc-audio"
     description = "Audio DSP Library"
     license = "BSL-1.0"
 
     settings = "os", "compiler", "build_type", "arch"
 
-    requires = ["mc-core/0.10.0@modern-circuits/stable"]
+    requires = ["mc-core/0.11.0@modern-circuits/stable"]
 
     @property
     def _build_all(self):
@@ -80,7 +80,7 @@ class ModernCircuitsDSP(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.names["cmake_find_package"] = "mc-dsp"
-        self.cpp_info.names["cmake_find_package_multi"] = "mc-dsp"
-        self.cpp_info.names["pkg_config"] = "mc-dsp"
-        self.cpp_info.set_property("cmake_target_name", "mc::dsp")
+        self.cpp_info.names["cmake_find_package"] = "mc-audio"
+        self.cpp_info.names["cmake_find_package_multi"] = "mc-audio"
+        self.cpp_info.names["pkg_config"] = "mc-audio"
+        self.cpp_info.set_property("cmake_target_name", "mc::audio")

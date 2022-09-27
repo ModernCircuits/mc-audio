@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/dsp/units/decibel.hpp>
+#include <mc/audio/units/decibel.hpp>
 
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_template_test_macros.hpp>
@@ -10,7 +10,7 @@ namespace dsp = mc::dsp;
 template<typename T>
 static constexpr auto zeroDB = dsp::Decibel<T>{0};
 
-TEMPLATE_TEST_CASE("dsp/units: toDecibel", "[dsp][units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: toDecibel", "[dsp][units]", float, double)
 {
     using T = TestType;
     STATIC_REQUIRE(dsp::toDecibel(T(1.0)).count() == T(0));
@@ -20,7 +20,7 @@ TEMPLATE_TEST_CASE("dsp/units: toDecibel", "[dsp][units]", float, double)
     REQUIRE(dsp::toDecibel(T(0.25)).count() == Catch::Approx(T(-12.04119)));
 }
 
-TEMPLATE_TEST_CASE("dsp/units: toGain", "[dsp][units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: toGain", "[dsp][units]", float, double)
 {
     using T = TestType;
 
@@ -31,7 +31,7 @@ TEMPLATE_TEST_CASE("dsp/units: toGain", "[dsp][units]", float, double)
     REQUIRE(dsp::toGain(dsp::Decibel{T(-12.04119)}) == Catch::Approx(T(0.25)));
 }
 
-TEMPLATE_TEST_CASE("dsp/units: compare(Decibel,Decibel)", "[dsp][units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: compare(Decibel,Decibel)", "[dsp][units]", float, double)
 {
     using T = TestType;
     STATIC_REQUIRE(zeroDB<T> == zeroDB<T>);

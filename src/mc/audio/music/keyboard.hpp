@@ -3,14 +3,14 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/dsp/music/note.hpp>
+#include <mc/audio/music/note.hpp>
 
 namespace mc::dsp {
 
-/// \ingroup mc-dsp-music
+/// \ingroup mc-audio-music
 [[nodiscard]] constexpr auto isBlackKey(Note note) noexcept -> bool;
 
-/// \ingroup mc-dsp-music
+/// \ingroup mc-audio-music
 [[nodiscard]] constexpr auto isWhiteKey(Note note) noexcept -> bool;
 
 }  // namespace mc::dsp

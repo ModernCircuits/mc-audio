@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/dsp/music.hpp>
+#include <mc/audio/music.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/generators/catch_generators.hpp>
@@ -12,7 +12,7 @@ static auto makeNote(int octave, int note) -> dsp::Note
     return dsp::Note{static_cast<uint8_t>(octave * 12 + note)};
 }
 
-TEST_CASE("dsp/music: isBlackKey", "[dsp][music]")
+TEST_CASE("audio/music: isBlackKey", "[dsp][music]")
 {
     auto octave = GENERATE(0, 1, 2, 3, 4, 5, 6, 7);
 
@@ -31,7 +31,7 @@ TEST_CASE("dsp/music: isBlackKey", "[dsp][music]")
     REQUIRE_FALSE(dsp::isBlackKey(makeNote(octave, 11)));  // B
 }
 
-TEST_CASE("dsp/music: isWhiteKey", "[dsp][music]")
+TEST_CASE("audio/music: isWhiteKey", "[dsp][music]")
 {
     auto octave = GENERATE(0, 1, 2, 3, 4, 5, 6, 7);
 

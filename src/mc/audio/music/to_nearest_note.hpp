@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include <mc/dsp/music/note.hpp>
-#include <mc/dsp/units/frequency.hpp>
+#include <mc/audio/music/note.hpp>
+#include <mc/audio/units/frequency.hpp>
 
 #include <mc/core/algorithm.hpp>
 #include <mc/core/cmath.hpp>
@@ -12,7 +12,7 @@
 namespace mc::dsp {
 
 /// \brief Get MIDI note number for a given frequency
-/// \ingroup mc-dsp-music
+/// \ingroup mc-audio-music
 template<typename T>
 auto toNearestNote(Hertz<T> frequency) -> Note
 {
@@ -21,7 +21,7 @@ auto toNearestNote(Hertz<T> frequency) -> Note
 }
 
 /// \brief Get MIDI note numbers for given frequencies
-/// \ingroup mc-dsp-music
+/// \ingroup mc-audio-music
 template<typename T>
 auto toNearestNote(Span<Frequency<T> const> freq, Span<Note> out) -> void
 {

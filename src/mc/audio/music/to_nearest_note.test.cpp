@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/dsp/music.hpp>
-#include <mc/dsp/units.hpp>
+#include <mc/audio/music.hpp>
+#include <mc/audio/units.hpp>
 
 #include <catch2/catch_template_test_macros.hpp>
 
@@ -9,7 +9,7 @@ namespace dsp = mc::dsp;
 
 static_assert(dsp::Hertz<float>{440.0F}.count() == 440.0F);
 
-TEMPLATE_TEST_CASE("dsp/music: toNearestNote", "[dsp][music]", float, double)
+TEMPLATE_TEST_CASE("audio/music: toNearestNote", "[dsp][music]", float, double)
 {
     using T = TestType;
     REQUIRE(dsp::toNearestNote(dsp::Hertz<T>(T(55))) == dsp::Note{33});   // A1

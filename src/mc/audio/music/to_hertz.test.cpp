@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/dsp/music.hpp>
+#include <mc/audio/music.hpp>
 
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_template_test_macros.hpp>
 
 namespace dsp = mc::dsp;
 
-TEMPLATE_TEST_CASE("dsp/music: toHertz", "[dsp][music]", float, double)
+TEMPLATE_TEST_CASE("audio/music: toHertz", "[dsp][music]", float, double)
 {
     using T = TestType;
 

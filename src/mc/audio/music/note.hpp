@@ -9,10 +9,10 @@
 
 namespace mc::dsp {
 
-/// \class Note "mc/dsp/music/note.hpp" <mc/dsp/music/note.hpp>
+/// \class Note "mc/audio/music/note.hpp" <mc/audio/music/note.hpp>
 /// \brief A music note.
 /// \example note.cpp
-/// \ingroup mc-dsp-music
+/// \ingroup mc-audio-music
 struct Note
 {
     constexpr Note() = default;

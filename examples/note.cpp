@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: BSL-1.0
 
+#include <mc/audio.hpp>
 #include <mc/core/array.hpp>
-#include <mc/core/format.hpp>
 #include <mc/core/numeric.hpp>
-#include <mc/dsp.hpp>
+#include <mc/core/print.hpp>
 
 using namespace mc;
 

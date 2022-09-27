@@ -3,8 +3,8 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/dsp/spacial/mid_side_frame.hpp>
-#include <mc/dsp/spacial/stereo_frame.hpp>
+#include <mc/audio/spacial/mid_side_frame.hpp>
+#include <mc/audio/spacial/stereo_frame.hpp>
 
 namespace mc::dsp {
 template<typename SampleType>

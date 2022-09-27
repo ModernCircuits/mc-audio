@@ -4,4 +4,4 @@ include(CMakeFindDependencyMacro)
 
 find_dependency(mc-core REQUIRED)
 
-include("${CMAKE_CURRENT_LIST_DIR}/mc-dsp-targets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/mc-audio-targets.cmake")
