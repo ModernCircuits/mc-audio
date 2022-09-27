@@ -7,10 +7,10 @@
 
 using namespace mc;
 
-auto makePianoNotes() -> Array<dsp::Note, 88>
+auto makePianoNotes() -> Array<Note, 88>
 {
-    auto notes = Array<dsp::Note, 88>{};
-    std::iota(begin(notes), end(notes), dsp::Note{21});
+    auto notes = Array<Note, 88>{};
+    std::iota(begin(notes), end(notes), Note{21});
     return notes;
 }
 
@@ -18,13 +18,13 @@ auto main() -> int
 {
     auto const notes = makePianoNotes();
     for (auto original : notes) {
-        auto const hertz = dsp::toHertz<float>(original);
-        auto const note  = dsp::toNearestNote(hertz);
+        auto const hertz = toHertz<float>(original);
+        auto const note  = toNearestNote(hertz);
         print(
             "note: {:n}\t frequency: {:.2f}\t isBlack: {}\n",
             note,
             hertz.count(),
-            dsp::isBlackKey(original)
+            isBlackKey(original)
         );
     }
 

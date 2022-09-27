@@ -6,7 +6,7 @@
 #include <mc/audio/spacial/mid_side_frame.hpp>
 #include <mc/audio/spacial/stereo_frame.hpp>
 
-namespace mc::dsp {
+namespace mc {
 template<typename SampleType>
 [[nodiscard]] constexpr auto toStereo(MidSideFrame<SampleType> frame) noexcept
     -> StereoFrame<SampleType>
@@ -17,4 +17,4 @@ template<typename SampleType>
         (frame.mid - frame.side) * gain,
     };
 }
-}  // namespace mc::dsp
+}  // namespace mc

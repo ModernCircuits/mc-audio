@@ -5,7 +5,7 @@
 
 #include <mc/audio/spacial/stereo_frame.hpp>
 
-namespace mc::dsp {
+namespace mc {
 template<typename T>
 struct StereoWidth
 {
@@ -23,6 +23,6 @@ private:
     T _width{1.0};
     T _coeff{_width * T(0.5)};
 };
-}  // namespace mc::dsp
+}  // namespace mc
 
 #include "stereo_width.cpp"  // NOLINT

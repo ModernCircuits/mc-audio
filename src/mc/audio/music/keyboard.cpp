@@ -8,7 +8,7 @@
 #include <mc/core/array.hpp>
 #include <mc/core/type_traits.hpp>
 
-namespace mc::dsp {
+namespace mc {
 
 constexpr auto isBlackKey(Note note) noexcept -> bool
 {
@@ -31,4 +31,4 @@ constexpr auto isBlackKey(Note note) noexcept -> bool
 
 constexpr auto isWhiteKey(Note note) noexcept -> bool { return !isBlackKey(note); }
 
-}  // namespace mc::dsp
+}  // namespace mc

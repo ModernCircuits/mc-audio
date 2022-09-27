@@ -2,7 +2,7 @@
 
 #pragma once
 
-/// \defgroup mc-audio DSP
+/// \defgroup mc-audio Audio
 
 #include <mc/audio/music.hpp>
 #include <mc/audio/spacial.hpp>

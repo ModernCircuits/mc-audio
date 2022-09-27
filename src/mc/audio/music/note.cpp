@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace mc::dsp {
+namespace mc {
 
 constexpr Note::Note(uint8_t note) noexcept : _note(note) {}
 
@@ -41,9 +41,9 @@ constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool
 
 constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool { return !(lhs == rhs); }
 
-}  // namespace mc::dsp
+}  // namespace mc
 
-constexpr auto fmt::formatter<mc::dsp::Note>::parse(format_parse_context& ctx)
+constexpr auto fmt::formatter<mc::Note>::parse(format_parse_context& ctx)
     -> decltype(ctx.begin())
 {
     auto it  = ctx.begin();
@@ -54,8 +54,8 @@ constexpr auto fmt::formatter<mc::dsp::Note>::parse(format_parse_context& ctx)
 }
 
 template<typename FormatContext>
-auto fmt::formatter<mc::dsp::Note>::format(mc::dsp::Note const& note, FormatContext& ctx)
-    const -> decltype(ctx.out())
+auto fmt::formatter<mc::Note>::format(mc::Note const& note, FormatContext& ctx) const
+    -> decltype(ctx.out())
 {
     auto number = static_cast<std::uint8_t>(note);
     if (presentation == 'n') { return fmt::format_to(ctx.out(), "{}", number); }

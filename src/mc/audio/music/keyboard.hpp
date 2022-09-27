@@ -5,7 +5,7 @@
 
 #include <mc/audio/music/note.hpp>
 
-namespace mc::dsp {
+namespace mc {
 
 /// \ingroup mc-audio-music
 [[nodiscard]] constexpr auto isBlackKey(Note note) noexcept -> bool;
@@ -13,6 +13,6 @@ namespace mc::dsp {
 /// \ingroup mc-audio-music
 [[nodiscard]] constexpr auto isWhiteKey(Note note) noexcept -> bool;
 
-}  // namespace mc::dsp
+}  // namespace mc
 
 #include "keyboard.cpp"  // NOLINT

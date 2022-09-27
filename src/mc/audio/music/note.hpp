@@ -7,7 +7,7 @@
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
 
-namespace mc::dsp {
+namespace mc {
 
 /// \class Note "mc/audio/music/note.hpp" <mc/audio/music/note.hpp>
 /// \brief A music note.
@@ -33,15 +33,15 @@ private:
 [[nodiscard]] constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
 [[nodiscard]] constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
 
-}  // namespace mc::dsp
+}  // namespace mc
 
 template<>
-struct fmt::formatter<mc::dsp::Note>
+struct fmt::formatter<mc::Note>
 {
     constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin());
 
     template<typename FormatContext>
-    auto format(mc::dsp::Note const& note, FormatContext& ctx) const -> decltype(ctx.out());
+    auto format(mc::Note const& note, FormatContext& ctx) const -> decltype(ctx.out());
 
     // Presentation format: 'n' - number, 'h' - human.
     char presentation = 'n';

@@ -3,7 +3,7 @@
 
 #include <mc/core/config.hpp>
 
-namespace mc::dsp {
+namespace mc {
 template<typename T>
 struct StereoFrame
 {
@@ -77,6 +77,6 @@ template<typename T>
 [[nodiscard]] constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept
     -> StereoFrame<T>&;
 
-}  // namespace mc::dsp
+}  // namespace mc
 
 #include "stereo_frame.cpp"  // NOLINT
