@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSL-1.0
 
 cmake_minimum_required(VERSION 3.21)
-project(mc-audio VERSION 0.9.0)
+project(mc-audio VERSION 0.10.0)
 
 find_package(mc-core REQUIRED)
 
