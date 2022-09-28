@@ -7,7 +7,7 @@
 
 using namespace mc;
 
-TEMPLATE_TEST_CASE("audio/units: Frequency", "[audio][units]", float, double)  // NOLINT
+TEMPLATE_TEST_CASE("units: Frequency", "[units]", float, double)  // NOLINT
 {
     using T = TestType;
 

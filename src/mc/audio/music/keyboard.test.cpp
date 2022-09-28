@@ -7,12 +7,12 @@
 
 using namespace mc;
 
-static auto makeNote(int octave, int note) -> Note
+[[nodiscard]] static auto makeNote(int octave, int note) -> Note
 {
     return Note{static_cast<uint8_t>(octave * 12 + note)};
 }
 
-TEST_CASE("audio/music: isBlackKey", "[audio][music]")
+TEST_CASE("music: isBlackKey", "[music]")
 {
     auto octave = GENERATE(0, 1, 2, 3, 4, 5, 6, 7);
 
@@ -31,7 +31,7 @@ TEST_CASE("audio/music: isBlackKey", "[audio][music]")
     REQUIRE_FALSE(isBlackKey(makeNote(octave, 11)));  // B
 }
 
-TEST_CASE("audio/music: isWhiteKey", "[audio][music]")
+TEST_CASE("music: isWhiteKey", "[music]")
 {
     auto octave = GENERATE(0, 1, 2, 3, 4, 5, 6, 7);
 

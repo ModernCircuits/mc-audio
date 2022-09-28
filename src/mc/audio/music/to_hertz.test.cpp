@@ -7,7 +7,7 @@
 
 using namespace mc;
 
-TEMPLATE_TEST_CASE("audio/music: toHertz", "[audio][music]", float, double)
+TEMPLATE_TEST_CASE("music: toHertz", "[music]", float, double)
 {
     using T = TestType;
 
