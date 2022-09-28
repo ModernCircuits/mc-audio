@@ -3,7 +3,7 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/spacial/stereo_frame.hpp>
+#include <mc/audio/stereo/stereo_frame.hpp>
 
 namespace mc {
 template<typename T>

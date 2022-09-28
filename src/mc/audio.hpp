@@ -5,5 +5,5 @@
 /// \defgroup mc-audio Audio
 
 #include <mc/audio/music.hpp>
-#include <mc/audio/spacial.hpp>
+#include <mc/audio/stereo.hpp>
 #include <mc/audio/units.hpp>
