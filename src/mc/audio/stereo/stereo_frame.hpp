@@ -46,36 +46,32 @@ template<typename T>
     -> StereoFrame<T>;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator+=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+constexpr auto operator+=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator-=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+constexpr auto operator-=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator*=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+constexpr auto operator*=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator/=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
+constexpr auto operator/=(StereoFrame<T>& lhs, StereoFrame<T> rhs) noexcept
     -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator+=(StereoFrame<T>& lhs, T rhs) noexcept
-    -> StereoFrame<T>&;
+constexpr auto operator+=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator-=(StereoFrame<T>& lhs, T rhs) noexcept
-    -> StereoFrame<T>&;
+constexpr auto operator-=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator*=(StereoFrame<T>& lhs, T rhs) noexcept
-    -> StereoFrame<T>&;
+constexpr auto operator*=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>&;
 
 template<typename T>
-[[nodiscard]] constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept
-    -> StereoFrame<T>&;
+constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>&;
 
 }  // namespace mc
 
