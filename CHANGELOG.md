@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.0 (tbd)
+
+- Add drflac, drmp3 and drwav libraries
+
 ## 0.10.0 (2022-09-27)
 
 - Rename library to mc-audio
