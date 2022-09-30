@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.11.0 (tbd)
+## 0.11.0 (2022-09-30)
 
 - Add drflac, drmp3 and drwav libraries
 - Update mc-core to 0.12.0
