@@ -3,6 +3,7 @@
 ## 0.11.0 (tbd)
 
 - Add drflac, drmp3 and drwav libraries
+- Update mc-core to 0.12.0
 
 ## 0.10.0 (2022-09-27)
 
