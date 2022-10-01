@@ -3,7 +3,7 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note/is_black_key.hpp>
+#include <mc/audio/music/keyboard/is_black_key.hpp>
 
 namespace mc {
 

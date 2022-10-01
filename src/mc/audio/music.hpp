@@ -7,5 +7,6 @@
 /// \ingroup mc-audio
 
 #include <mc/audio/music/chord.hpp>
+#include <mc/audio/music/keyboard.hpp>
 #include <mc/audio/music/note.hpp>
 #include <mc/audio/music/tuning.hpp>

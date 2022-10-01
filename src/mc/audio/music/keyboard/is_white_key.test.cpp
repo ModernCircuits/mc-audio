@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/audio/music/note/is_white_key.hpp>
+#include <mc/audio/music/keyboard/is_white_key.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/generators/catch_generators.hpp>
@@ -12,7 +12,7 @@ using namespace mc;
     return Note{octave * 12 + note};
 }
 
-TEST_CASE("music/note: isWhiteKey", "[music]")
+TEST_CASE("music/keyboard: isWhiteKey", "[music]")
 {
     auto octave = GENERATE(0, 1, 2, 3, 4, 5, 6, 7);
 

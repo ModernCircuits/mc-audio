@@ -37,8 +37,8 @@ target_sources(mc-audio-tests
     PRIVATE
         "src/mc/audio/music/chord/is_major.test.cpp"
         "src/mc/audio/music/chord/is_minor.test.cpp"
-        "src/mc/audio/music/note/is_black_key.test.cpp"
-        "src/mc/audio/music/note/is_white_key.test.cpp"
+        "src/mc/audio/music/keyboard/is_black_key.test.cpp"
+        "src/mc/audio/music/keyboard/is_white_key.test.cpp"
         "src/mc/audio/music/note/note.test.cpp"
         "src/mc/audio/music/note/semitones.test.cpp"
         "src/mc/audio/music/note/to_hertz.test.cpp"
