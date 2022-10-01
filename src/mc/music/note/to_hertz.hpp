@@ -4,15 +4,15 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note/note.hpp>
 #include <mc/audio/units/frequency.hpp>
 
 #include <mc/core/span.hpp>
+#include <mc/music/note/note.hpp>
 
 namespace mc {
 
 /// \brief Get the frequency of a MIDI note.
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 /// \relates Note
 template<typename T>
 [[nodiscard]] constexpr auto toHertz(Note note) noexcept -> Hertz<T>;

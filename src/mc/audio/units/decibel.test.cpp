@@ -10,7 +10,7 @@ using namespace mc;
 template<typename T>
 static constexpr auto zeroDB = Decibel<T>{0};
 
-TEMPLATE_TEST_CASE("units: toDecibel", "[units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: toDecibel", "[units]", float, double)
 {
     using T = TestType;
     STATIC_REQUIRE(toDecibel(T(1.0)).count() == T(0));
@@ -20,7 +20,7 @@ TEMPLATE_TEST_CASE("units: toDecibel", "[units]", float, double)
     REQUIRE(toDecibel(T(0.25)).count() == Catch::Approx(T(-12.04119)));
 }
 
-TEMPLATE_TEST_CASE("units: toGain", "[units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: toGain", "[units]", float, double)
 {
     using T = TestType;
 
@@ -31,7 +31,7 @@ TEMPLATE_TEST_CASE("units: toGain", "[units]", float, double)
     REQUIRE(toGain(Decibel{T(-12.04119)}) == Catch::Approx(T(0.25)));
 }
 
-TEMPLATE_TEST_CASE("units: compare(Decibel,Decibel)", "[units]", float, double)
+TEMPLATE_TEST_CASE("audio/units: compare(Decibel,Decibel)", "[units]", float, double)
 {
     using T = TestType;
     STATIC_REQUIRE(zeroDB<T> == zeroDB<T>);

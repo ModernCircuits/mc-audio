@@ -2,17 +2,17 @@
 
 #pragma once
 
-#include <mc/audio/music/note/note.hpp>
 #include <mc/audio/units/frequency.hpp>
 
 #include <mc/core/algorithm.hpp>
 #include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
+#include <mc/music/note/note.hpp>
 
 namespace mc {
 
 /// \brief Get MIDI note number for a given frequency
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 template<typename T>
 auto toNearestNote(Hertz<T> frequency) -> Note
 {

@@ -9,7 +9,7 @@
 namespace mc {
 
 /// \class Semitones
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 struct Semitones
 {
     constexpr Semitones() = default;

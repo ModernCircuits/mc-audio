@@ -3,11 +3,11 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note/note.hpp>
+#include <mc/music/note/note.hpp>
 
 namespace mc {
 
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 [[nodiscard]] constexpr auto isWhiteKey(Note note) noexcept -> bool;
 
 }  // namespace mc

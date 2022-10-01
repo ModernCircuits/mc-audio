@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/audio/music/keyboard/is_black_key.hpp>
+#include <mc/music/keyboard/is_black_key.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/generators/catch_generators.hpp>

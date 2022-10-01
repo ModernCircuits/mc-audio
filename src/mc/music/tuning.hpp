@@ -22,7 +22,7 @@ namespace mc {
 ///
 /// \return Reference frequency corresponding to A4.
 ///
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 template<typename T>
 auto tuningToA4(T tuning, int binPerOctave = 12)
 {
@@ -43,7 +43,7 @@ auto tuningToA4(T tuning, int binPerOctave = 12)
 ///
 /// \return Tuning deviation from A440 in (fractional) bins per octave.
 ///
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 template<typename T>
 auto tuningFromA4(Frequency<T> a4, int binPerOctave = 12)
 {

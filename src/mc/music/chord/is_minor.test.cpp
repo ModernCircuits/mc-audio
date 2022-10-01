@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/audio/music/chord.hpp>
-
 #include <mc/core/array.hpp>
+#include <mc/music/chord.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 

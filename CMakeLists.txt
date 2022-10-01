@@ -35,15 +35,16 @@ target_link_libraries(mc-audio-tests
 
 target_sources(mc-audio-tests
     PRIVATE
-        "src/mc/audio/music/chord/is_major.test.cpp"
-        "src/mc/audio/music/chord/is_minor.test.cpp"
-        "src/mc/audio/music/keyboard/is_black_key.test.cpp"
-        "src/mc/audio/music/keyboard/is_white_key.test.cpp"
-        "src/mc/audio/music/note/note.test.cpp"
-        "src/mc/audio/music/note/semitones.test.cpp"
-        "src/mc/audio/music/note/to_hertz.test.cpp"
-        "src/mc/audio/music/note/to_nearest_note.test.cpp"
         "src/mc/audio/stereo/stereo_frame.test.cpp"
         "src/mc/audio/units/decibel.test.cpp"
         "src/mc/audio/units/frequency.test.cpp"
+
+        "src/mc/music/chord/is_major.test.cpp"
+        "src/mc/music/chord/is_minor.test.cpp"
+        "src/mc/music/keyboard/is_black_key.test.cpp"
+        "src/mc/music/keyboard/is_white_key.test.cpp"
+        "src/mc/music/note/note.test.cpp"
+        "src/mc/music/note/semitones.test.cpp"
+        "src/mc/music/note/to_hertz.test.cpp"
+        "src/mc/music/note/to_nearest_note.test.cpp"
 )

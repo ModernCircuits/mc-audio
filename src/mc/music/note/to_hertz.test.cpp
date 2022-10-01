@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/audio/music.hpp>
+#include <mc/music.hpp>
 
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_template_test_macros.hpp>

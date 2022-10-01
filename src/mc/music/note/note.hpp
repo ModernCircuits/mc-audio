@@ -4,17 +4,16 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note/semitones.hpp>
-
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
+#include <mc/music/note/semitones.hpp>
 
 namespace mc {
 
-/// \class Note "mc/audio/music/note.hpp" <mc/audio/music/note.hpp>
+/// \class Note "mc/music/note.hpp" <mc/music/note.hpp>
 /// \brief A music note.
 /// \example note.cpp
-/// \ingroup mc-audio-music
+/// \ingroup mc-music
 struct Note
 {
     constexpr Note() = default;

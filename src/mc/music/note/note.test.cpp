@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSL-1.0
 
-#include <mc/audio/music/note.hpp>
+#include <mc/music/note.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 
