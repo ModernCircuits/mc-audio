@@ -43,6 +43,7 @@ target_sources(mc-audio-tests
         "src/mc/music/chord/is_minor.test.cpp"
         "src/mc/music/keyboard/is_black_key.test.cpp"
         "src/mc/music/keyboard/is_white_key.test.cpp"
+        "src/mc/music/keyboard/make_piano_notes.test.cpp"
         "src/mc/music/note/note.test.cpp"
         "src/mc/music/note/semitones.test.cpp"
         "src/mc/music/note/to_hertz.test.cpp"

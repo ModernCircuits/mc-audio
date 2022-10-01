@@ -7,16 +7,9 @@
 
 using namespace mc;
 
-auto makePianoNotes() -> Array<Note, 88>
-{
-    auto notes = Array<Note, 88>{};
-    std::iota(begin(notes), end(notes), Note{21});
-    return notes;
-}
-
 auto main() -> int
 {
-    auto const notes = makePianoNotes();
+    auto const notes = makePianoNotes<88>(Note{21});
     for (auto original : notes) {
         auto const hertz = toHertz<float>(original);
         auto const note  = toNearestNote(hertz);
