@@ -16,5 +16,6 @@ TEST_CASE("music/chord: isMinor", "[music]")
     REQUIRE_FALSE(isMinor({}));
     REQUIRE_FALSE(isMinor(Array<Note, 2>{}));
     REQUIRE_FALSE(isMinor(Array<Note, 3>{}));
+    REQUIRE_FALSE(isMinor(Array<Note, 3>{Note{60}, Note{63}, Note{66}}));
     REQUIRE_FALSE(isMinor(Array<Note, 3>{Note{60}, Note{60}, Note{60}}));
 }
