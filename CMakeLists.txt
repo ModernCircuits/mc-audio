@@ -35,9 +35,9 @@ target_link_libraries(mc-audio-tests
 
 target_sources(mc-audio-tests
     PRIVATE
-        "src/mc/audio/music/keyboard.test.cpp"
-        "src/mc/audio/music/to_hertz.test.cpp"
-        "src/mc/audio/music/to_nearest_note.test.cpp"
+        "src/mc/audio/music/note/keyboard.test.cpp"
+        "src/mc/audio/music/note/to_hertz.test.cpp"
+        "src/mc/audio/music/note/to_nearest_note.test.cpp"
         "src/mc/audio/stereo/stereo_frame.test.cpp"
         "src/mc/audio/units/decibel.test.cpp"
         "src/mc/audio/units/frequency.test.cpp"

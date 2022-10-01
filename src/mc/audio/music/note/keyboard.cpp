@@ -3,8 +3,6 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note.hpp>
-
 #include <mc/core/array.hpp>
 #include <mc/core/type_traits.hpp>
 

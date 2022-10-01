@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <mc/audio/music/note.hpp>
+#include <mc/audio/music/note/note.hpp>
 #include <mc/audio/units/frequency.hpp>
 
 #include <mc/core/algorithm.hpp>
