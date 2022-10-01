@@ -38,6 +38,7 @@ target_sources(mc-audio-tests
         "src/mc/audio/music/chord/is_minor.test.cpp"
         "src/mc/audio/music/note/keyboard.test.cpp"
         "src/mc/audio/music/note/note.test.cpp"
+        "src/mc/audio/music/note/semitones.test.cpp"
         "src/mc/audio/music/note/to_hertz.test.cpp"
         "src/mc/audio/music/note/to_nearest_note.test.cpp"
         "src/mc/audio/stereo/stereo_frame.test.cpp"
