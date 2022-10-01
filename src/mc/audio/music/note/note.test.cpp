@@ -42,3 +42,30 @@ TEST_CASE("music/note: operator--(Note)", "[music]")
     note--;
     REQUIRE(note == Note{31});
 }
+
+TEST_CASE("music/note: operator-(Note, Note)", "[music]")
+{
+    using namespace mc;
+
+    REQUIRE(Note{69} - Note{69} == Semitones{0});
+    REQUIRE(Note{33} - Note{32} == Semitones{1});
+    REQUIRE(Note{81} - Note{69} == Semitones{12});
+}
+
+TEST_CASE("music/note: operator+(Note, Semitones)", "[music]")
+{
+    using namespace mc;
+
+    REQUIRE(Note{69} + Semitones{0} == Note{69});
+    REQUIRE(Note{31} + Semitones{1} == Note{32});
+    REQUIRE(Note{69} + Semitones{12} == Note{81});
+}
+
+TEST_CASE("music/note: operator-(Note, Semitones)", "[music]")
+{
+    using namespace mc;
+
+    REQUIRE(Note{69} - Semitones{0} == Note{69});
+    REQUIRE(Note{31} - Semitones{1} == Note{30});
+    REQUIRE(Note{69} - Semitones{12} == Note{57});
+}

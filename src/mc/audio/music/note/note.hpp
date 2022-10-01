@@ -41,6 +41,10 @@ constexpr auto operator--(Note& note, int) noexcept -> Note;
 [[nodiscard]] constexpr auto operator>(Note lhs, Note rhs) noexcept -> bool;
 [[nodiscard]] constexpr auto operator>=(Note lhs, Note rhs) noexcept -> bool;
 
+[[nodiscard]] constexpr auto operator-(Note lhs, Note rhs) noexcept -> Semitones;
+[[nodiscard]] constexpr auto operator+(Note lhs, Semitones rhs) noexcept -> Note;
+[[nodiscard]] constexpr auto operator-(Note lhs, Semitones rhs) noexcept -> Note;
+
 }  // namespace mc
 
 template<>

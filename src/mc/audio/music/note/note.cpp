@@ -65,6 +65,21 @@ constexpr auto operator>=(Note lhs, Note rhs) noexcept -> bool
     return lhs.count() >= rhs.count();
 }
 
+constexpr auto operator-(Note lhs, Note rhs) noexcept -> Semitones
+{
+    return Semitones{lhs.count() - rhs.count()};
+}
+
+constexpr auto operator+(Note lhs, Semitones rhs) noexcept -> Note
+{
+    return Note{lhs.count() + rhs.count()};
+}
+
+constexpr auto operator-(Note lhs, Semitones rhs) noexcept -> Note
+{
+    return Note{lhs.count() - rhs.count()};
+}
+
 }  // namespace mc
 
 constexpr auto fmt::formatter<mc::Note>::parse(format_parse_context& ctx)
