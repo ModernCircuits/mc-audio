@@ -35,6 +35,7 @@ target_link_libraries(mc-audio-tests
 
 target_sources(mc-audio-tests
     PRIVATE
+        "src/mc/audio/music/chord/is_minor.test.cpp"
         "src/mc/audio/music/note/keyboard.test.cpp"
         "src/mc/audio/music/note/to_hertz.test.cpp"
         "src/mc/audio/music/note/to_nearest_note.test.cpp"

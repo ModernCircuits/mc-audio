@@ -9,7 +9,7 @@ using namespace mc;
 
 static_assert(Hertz<float>{440.0F}.count() == 440.0F);
 
-TEMPLATE_TEST_CASE("music: toNearestNote", "[music]", float, double)
+TEMPLATE_TEST_CASE("music/note: toNearestNote", "[music]", float, double)
 {
     using T = TestType;
     REQUIRE(toNearestNote(Hertz<T>(T(55))) == Note{33});   // A1

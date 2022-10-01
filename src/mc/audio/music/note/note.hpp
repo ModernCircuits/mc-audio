@@ -4,6 +4,8 @@
 
 #include <mc/core/config.hpp>
 
+#include <mc/audio/music/note/note_interval.hpp>
+
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
 
