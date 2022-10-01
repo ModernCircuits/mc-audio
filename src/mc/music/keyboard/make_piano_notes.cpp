@@ -13,7 +13,7 @@ constexpr auto makePianoNotes(Note lowestNote) -> Array<Note, Size>
     return notes;
 }
 
-constexpr auto makePianoNotes(size_t size, Note lowestNote) -> Vector<Note>
+inline auto makePianoNotes(size_t size, Note lowestNote) -> Vector<Note>
 {
     auto notes = Vector<Note>(size);
     std::iota(std::begin(notes), std::end(notes), lowestNote);

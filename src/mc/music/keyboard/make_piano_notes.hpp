@@ -15,7 +15,7 @@ namespace mc {
 template<size_t Size>
 [[nodiscard]] constexpr auto makePianoNotes(Note lowestNote) -> Array<Note, Size>;
 
-[[nodiscard]] constexpr auto makePianoNotes(size_t size, Note lowestNote) -> Vector<Note>;
+[[nodiscard]] auto makePianoNotes(size_t size, Note lowestNote) -> Vector<Note>;
 
 }  // namespace mc
 
