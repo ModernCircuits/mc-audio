@@ -61,16 +61,18 @@ IncludeCategories:
     Priority: 2
   - Regex: "^<mc/audio/[[:alnum:].]+"
     Priority: 3
-  - Regex: "^<mc/core[[:alnum:].]+"
+  - Regex: "^<mc/music/[[:alnum:].]+"
     Priority: 4
-  - Regex: "^<mc/[[:alnum:].]+"
+  - Regex: "^<mc/core[[:alnum:].]+"
     Priority: 5
-  - Regex: "^<(boost|fmt|catch2)/"
+  - Regex: "^<mc/[[:alnum:].]+"
     Priority: 6
-  - Regex: "^<[[:alnum:].]+>"
+  - Regex: "^<(boost|fmt|catch2)/"
     Priority: 7
-  - Regex: "^<(catch2)/"
+  - Regex: "^<[[:alnum:].]+>"
     Priority: 8
+  - Regex: "^<(catch2)/"
+    Priority: 9
 IndentCaseLabels: true
 IndentWidth: 4
 IndentWrappedFunctionNames: false

@@ -6,8 +6,9 @@
 
 #include <mc/audio/units/frequency.hpp>
 
-#include <mc/core/span.hpp>
 #include <mc/music/note/note.hpp>
+
+#include <mc/core/span.hpp>
 
 namespace mc {
 

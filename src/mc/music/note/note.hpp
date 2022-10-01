@@ -4,9 +4,10 @@
 
 #include <mc/core/config.hpp>
 
+#include <mc/music/note/semitones.hpp>
+
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
-#include <mc/music/note/semitones.hpp>
 
 namespace mc {
 

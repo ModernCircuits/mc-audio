@@ -3,10 +3,11 @@
 
 #include <mc/core/config.hpp>
 
+#include <mc/music/note/note.hpp>
+
 #include <mc/core/array.hpp>
 #include <mc/core/cstddef.hpp>
 #include <mc/core/vector.hpp>
-#include <mc/music/note/note.hpp>
 
 namespace mc {
 

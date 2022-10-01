@@ -4,10 +4,11 @@
 
 #include <mc/audio/units/frequency.hpp>
 
+#include <mc/music/note/note.hpp>
+
 #include <mc/core/algorithm.hpp>
 #include <mc/core/cmath.hpp>
 #include <mc/core/span.hpp>
-#include <mc/music/note/note.hpp>
 
 namespace mc {
 
