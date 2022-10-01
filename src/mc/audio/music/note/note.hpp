@@ -20,8 +20,9 @@ struct Note
     constexpr Note() = default;
     explicit constexpr Note(int note) noexcept;
 
-    [[nodiscard]] explicit constexpr operator uint8_t() const noexcept;
+    [[nodiscard]] constexpr auto count() const noexcept -> int;
     [[nodiscard]] explicit constexpr operator int() const noexcept;
+    [[nodiscard]] explicit constexpr operator uint8_t() const noexcept;
 
 private:
     uint8_t _val{0};

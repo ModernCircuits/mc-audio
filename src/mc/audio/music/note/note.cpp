@@ -6,9 +6,11 @@ namespace mc {
 
 constexpr Note::Note(int note) noexcept : _val{static_cast<uint8_t>(note)} {}
 
-constexpr Note::operator uint8_t() const noexcept { return _val; }
+constexpr auto Note::count() const noexcept -> int { return static_cast<int>(_val); }
 
-constexpr Note::operator int() const noexcept { return static_cast<int>(_val); }
+constexpr Note::operator int() const noexcept { return count(); }
+
+constexpr Note::operator uint8_t() const noexcept { return _val; }
 
 constexpr auto operator++(Note& note) noexcept -> Note&
 {
@@ -38,29 +40,29 @@ constexpr auto operator--(Note& note, int) noexcept -> Note
 
 constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool
 {
-    return static_cast<int>(lhs) == static_cast<int>(rhs);
+    return lhs.count() == rhs.count();
 }
 
 constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool { return !(lhs == rhs); }
 
 constexpr auto operator<(Note lhs, Note rhs) noexcept -> bool
 {
-    return static_cast<int>(lhs) < static_cast<int>(rhs);
+    return lhs.count() < rhs.count();
 }
 
 constexpr auto operator<=(Note lhs, Note rhs) noexcept -> bool
 {
-    return static_cast<int>(lhs) <= static_cast<int>(rhs);
+    return lhs.count() <= rhs.count();
 }
 
 constexpr auto operator>(Note lhs, Note rhs) noexcept -> bool
 {
-    return static_cast<int>(lhs) > static_cast<int>(rhs);
+    return lhs.count() > rhs.count();
 }
 
 constexpr auto operator>=(Note lhs, Note rhs) noexcept -> bool
 {
-    return static_cast<int>(lhs) >= static_cast<int>(rhs);
+    return lhs.count() >= rhs.count();
 }
 
 }  // namespace mc
