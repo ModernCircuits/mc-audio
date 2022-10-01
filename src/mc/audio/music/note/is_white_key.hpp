@@ -8,11 +8,8 @@
 namespace mc {
 
 /// \ingroup mc-audio-music
-[[nodiscard]] constexpr auto isBlackKey(Note note) noexcept -> bool;
-
-/// \ingroup mc-audio-music
 [[nodiscard]] constexpr auto isWhiteKey(Note note) noexcept -> bool;
 
 }  // namespace mc
 
-#include "keyboard.cpp"  // NOLINT
+#include "is_white_key.cpp"  // NOLINT

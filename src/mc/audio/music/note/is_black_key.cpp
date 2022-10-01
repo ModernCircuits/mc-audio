@@ -4,7 +4,7 @@
 #include <mc/core/config.hpp>
 
 #include <mc/core/array.hpp>
-#include <mc/core/type_traits.hpp>
+#include <mc/core/cstddef.hpp>
 
 namespace mc {
 
@@ -26,7 +26,5 @@ constexpr auto isBlackKey(Note note) noexcept -> bool
     };
     return notes[static_cast<size_t>(note.count() % 12)];
 }
-
-constexpr auto isWhiteKey(Note note) noexcept -> bool { return !isBlackKey(note); }
 
 }  // namespace mc
