@@ -14,7 +14,7 @@ constexpr Note::operator uint8_t() const noexcept { return _val; }
 
 constexpr auto operator++(Note& note) noexcept -> Note&
 {
-    note = Note{static_cast<int>(note) + 1};
+    note = Note{note.count() + 1};
     return note;
 }
 
@@ -27,7 +27,7 @@ constexpr auto operator++(Note& note, int) noexcept -> Note
 
 constexpr auto operator--(Note& note) noexcept -> Note&
 {
-    note = Note{static_cast<int>(note) - 1};
+    note = Note{note.count() - 1};
     return note;
 }
 
@@ -81,7 +81,6 @@ template<typename FormatContext>
 auto fmt::formatter<mc::Note>::format(mc::Note const& note, FormatContext& ctx) const
     -> decltype(ctx.out())
 {
-    auto number = static_cast<int>(note);
-    if (presentation == 'n') { return fmt::format_to(ctx.out(), "{}", number); }
-    return fmt::format_to(ctx.out(), "{}", number);
+    if (presentation == 'n') { return fmt::format_to(ctx.out(), "{}", note.count()); }
+    return fmt::format_to(ctx.out(), "{}", note.count());
 }

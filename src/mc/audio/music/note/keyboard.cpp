@@ -24,7 +24,7 @@ constexpr auto isBlackKey(Note note) noexcept -> bool
         true,   // A#
         false,  // B
     };
-    return notes[static_cast<size_t>(static_cast<int>(note) % 12)];
+    return notes[static_cast<size_t>(note.count() % 12)];
 }
 
 constexpr auto isWhiteKey(Note note) noexcept -> bool { return !isBlackKey(note); }

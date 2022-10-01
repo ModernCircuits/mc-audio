@@ -14,7 +14,7 @@ constexpr Semitones::operator uint8_t() const noexcept { return _val; }
 
 constexpr auto operator++(Semitones& semitones) noexcept -> Semitones&
 {
-    semitones = Semitones{static_cast<int>(semitones) + 1};
+    semitones = Semitones{semitones.count() + 1};
     return semitones;
 }
 
@@ -27,7 +27,7 @@ constexpr auto operator++(Semitones& semitones, int) noexcept -> Semitones
 
 constexpr auto operator--(Semitones& semitones) noexcept -> Semitones&
 {
-    semitones = Semitones{static_cast<int>(semitones) - 1};
+    semitones = Semitones{semitones.count() - 1};
     return semitones;
 }
 
