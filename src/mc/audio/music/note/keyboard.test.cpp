@@ -9,7 +9,7 @@ using namespace mc;
 
 [[nodiscard]] static auto makeNote(int octave, int note) -> Note
 {
-    return Note{static_cast<uint8_t>(octave * 12 + note)};
+    return Note{octave * 12 + note};
 }
 
 TEST_CASE("music/note: isBlackKey", "[music]")

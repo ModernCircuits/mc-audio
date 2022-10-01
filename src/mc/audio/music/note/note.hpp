@@ -4,7 +4,7 @@
 
 #include <mc/core/config.hpp>
 
-#include <mc/audio/music/note/note_interval.hpp>
+#include <mc/audio/music/note/semitones.hpp>
 
 #include <mc/core/cstdint.hpp>
 #include <mc/core/format.hpp>
@@ -18,7 +18,7 @@ namespace mc {
 struct Note
 {
     constexpr Note() = default;
-    explicit constexpr Note(uint8_t note) noexcept;
+    explicit constexpr Note(int note) noexcept;
 
     [[nodiscard]] explicit constexpr operator uint8_t() const noexcept;
     [[nodiscard]] explicit constexpr operator int() const noexcept;

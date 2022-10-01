@@ -4,7 +4,7 @@
 
 namespace mc {
 
-constexpr Note::Note(uint8_t note) noexcept : _val(note) {}
+constexpr Note::Note(int note) noexcept : _val{static_cast<uint8_t>(note)} {}
 
 constexpr Note::operator uint8_t() const noexcept { return _val; }
 
@@ -12,7 +12,7 @@ constexpr Note::operator int() const noexcept { return static_cast<int>(_val); }
 
 constexpr auto operator++(Note& note) noexcept -> Note&
 {
-    note = Note{static_cast<uint8_t>(static_cast<int>(note) + 1)};
+    note = Note{static_cast<int>(note) + 1};
     return note;
 }
 
@@ -25,7 +25,7 @@ constexpr auto operator++(Note& note, int) noexcept -> Note
 
 constexpr auto operator--(Note& note) noexcept -> Note&
 {
-    note = Note{static_cast<uint8_t>(static_cast<int>(note) - 1)};
+    note = Note{static_cast<int>(note) - 1};
     return note;
 }
 

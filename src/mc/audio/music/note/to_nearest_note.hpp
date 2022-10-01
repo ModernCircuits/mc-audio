@@ -17,7 +17,7 @@ template<typename T>
 auto toNearestNote(Hertz<T> frequency) -> Note
 {
     auto raw = T{12} * (log2(frequency.count()) - log2(T{440})) + T{69};
-    return Note{static_cast<std::uint8_t>(std::round(raw))};
+    return Note{static_cast<int>(std::round(raw))};
 }
 
 }  // namespace mc
