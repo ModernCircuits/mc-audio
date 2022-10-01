@@ -21,19 +21,24 @@ struct Note
     explicit constexpr Note(uint8_t note) noexcept;
 
     [[nodiscard]] explicit constexpr operator uint8_t() const noexcept;
-
-    [[nodiscard]] constexpr auto operator++() noexcept -> Note&;
-    [[nodiscard]] constexpr auto operator++(int) noexcept -> Note;
-
-    [[nodiscard]] constexpr auto operator--() noexcept -> Note&;
-    [[nodiscard]] constexpr auto operator--(int) noexcept -> Note;
+    [[nodiscard]] explicit constexpr operator int() const noexcept;
 
 private:
-    uint8_t _note{0};
+    uint8_t _val{0};
 };
+
+constexpr auto operator++(Note& note) noexcept -> Note&;
+constexpr auto operator++(Note& note, int) noexcept -> Note;
+
+constexpr auto operator--(Note& note) noexcept -> Note&;
+constexpr auto operator--(Note& note, int) noexcept -> Note;
 
 [[nodiscard]] constexpr auto operator==(Note lhs, Note rhs) noexcept -> bool;
 [[nodiscard]] constexpr auto operator!=(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator<(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator<=(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator>(Note lhs, Note rhs) noexcept -> bool;
+[[nodiscard]] constexpr auto operator>=(Note lhs, Note rhs) noexcept -> bool;
 
 }  // namespace mc
 
