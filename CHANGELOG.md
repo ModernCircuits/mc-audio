@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0 (tbd)
+
+- `music`: Add Semitones interval unit type
+- `music`: Chord classification functions
+- `music`: Add keyboard utility functions: `isBlackKey`, `isWhiteKey`, `makePianoNotes`
+
 ## 0.11.0 (2022-09-30)
 
 - Add drflac, drmp3 and drwav libraries
