@@ -5,6 +5,7 @@
 - `music`: Add Semitones interval unit type
 - `music`: Chord classification functions
 - `music`: Add keyboard utility functions: `isBlackKey`, `isWhiteKey`, `makePianoNotes`
+- `music`: Add PPQN unit type
 
 ## 0.11.0 (2022-09-30)
 

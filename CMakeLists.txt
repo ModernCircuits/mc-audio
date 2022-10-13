@@ -48,4 +48,5 @@ target_sources(mc-audio-tests
         "src/mc/music/note/semitones.test.cpp"
         "src/mc/music/note/to_hertz.test.cpp"
         "src/mc/music/note/to_nearest_note.test.cpp"
+        "src/mc/music/rhythm/ppqn.test.cpp"
 )
