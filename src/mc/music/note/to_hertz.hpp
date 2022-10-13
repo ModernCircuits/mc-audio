@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: BSL-1.0
-
 #pragma once
-
-#include <mc/core/config.hpp>
 
 #include <mc/audio/units/frequency.hpp>
 
 #include <mc/music/note/note.hpp>
-
-#include <mc/core/span.hpp>
 
 namespace mc {
 
