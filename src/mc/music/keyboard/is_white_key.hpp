@@ -12,4 +12,4 @@ namespace mc {
 
 }  // namespace mc
 
-#include "is_white_key.cpp"  // NOLINT
+#include "is_white_key.impl.hpp"

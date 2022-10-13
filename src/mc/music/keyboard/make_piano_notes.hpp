@@ -19,4 +19,4 @@ template<size_t Size>
 
 }  // namespace mc
 
-#include "make_piano_notes.cpp"  // NOLINT
+#include "make_piano_notes.impl.hpp"

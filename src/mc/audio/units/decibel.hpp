@@ -46,4 +46,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "decibel.cpp"  // NOLINT
+#include "decibel.impl.hpp"

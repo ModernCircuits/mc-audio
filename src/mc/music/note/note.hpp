@@ -59,4 +59,4 @@ struct fmt::formatter<mc::Note>
     char presentation = 'n';
 };
 
-#include "note.cpp"  // NOLINT
+#include "note.impl.hpp"

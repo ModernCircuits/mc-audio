@@ -14,4 +14,4 @@ namespace mc {
 
 }  // namespace mc
 
-#include "is_minor.cpp"  // NOLINT
+#include "is_minor.impl.hpp"

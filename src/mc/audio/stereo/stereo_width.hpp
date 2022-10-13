@@ -25,4 +25,4 @@ private:
 };
 }  // namespace mc
 
-#include "stereo_width.cpp"  // NOLINT
+#include "stereo_width.impl.hpp"

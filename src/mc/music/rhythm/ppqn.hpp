@@ -23,4 +23,4 @@ private:
 
 }  // namespace mc
 
-#include "ppqn.cpp"  // NOLINT
+#include "ppqn.impl.hpp"

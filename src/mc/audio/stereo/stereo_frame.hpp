@@ -75,4 +75,4 @@ constexpr auto operator/=(StereoFrame<T>& lhs, T rhs) noexcept -> StereoFrame<T>
 
 }  // namespace mc
 
-#include "stereo_frame.cpp"  // NOLINT
+#include "stereo_frame.impl.hpp"

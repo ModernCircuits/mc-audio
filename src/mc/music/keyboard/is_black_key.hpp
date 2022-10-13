@@ -12,4 +12,4 @@ namespace mc {
 
 }  // namespace mc
 
-#include "is_black_key.cpp"  // NOLINT
+#include "is_black_key.impl.hpp"

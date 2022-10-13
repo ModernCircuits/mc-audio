@@ -38,4 +38,4 @@ constexpr auto operator--(Semitones& semitones, int) noexcept -> Semitones;
 
 }  // namespace mc
 
-#include "semitones.cpp"  // NOLINT
+#include "semitones.impl.hpp"

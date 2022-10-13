@@ -20,4 +20,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "to_hertz.cpp"  // NOLINT
+#include "to_hertz.impl.hpp"
