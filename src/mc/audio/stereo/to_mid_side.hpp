@@ -5,14 +5,10 @@
 #include <mc/audio/stereo/stereo_frame.hpp>
 
 namespace mc {
-template<typename SampleType>
-[[nodiscard]] constexpr auto toMidSide(StereoFrame<SampleType> frame) noexcept
-    -> MidSideFrame<SampleType>
-{
-    auto const gain = static_cast<SampleType>(0.707946);  // -3dB
-    return {
-        (frame.left + frame.right) * gain,
-        (frame.left - frame.right) * gain,
-    };
-}
+
+template<typename T>
+[[nodiscard]] constexpr auto toMidSide(StereoFrame<T> frame) noexcept -> MidSideFrame<T>;
+
 }  // namespace mc
+
+#include "to_mid_side.impl.hpp"
