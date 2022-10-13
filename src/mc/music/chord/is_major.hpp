@@ -5,7 +5,6 @@
 
 #include <mc/core/span.hpp>
 
-
 namespace mc {
 
 /// \ingroup mc-music
