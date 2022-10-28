@@ -19,10 +19,7 @@ class ModernCircuitsAudio(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.12.0@modern-circuits/stable",
-        "drflac/0.12.38",
-        "drmp3/0.6.32",
-        "drwav/0.13.6",
+        "mc-core/0.13.0@modern-circuits/stable",
     ]
 
     @property

@@ -6,6 +6,7 @@
 - `music`: Chord classification functions
 - `music`: Add keyboard utility functions: `isBlackKey`, `isWhiteKey`, `makePianoNotes`
 - `music`: Add PPQN unit type
+- Remove drflac, drmp3 and drwav libraries
 
 ## 0.11.0 (2022-09-30)
 
