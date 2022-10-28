@@ -10,4 +10,4 @@ namespace mc {
 
 }  // namespace mc
 
-#include "is_white_key.impl.hpp"
+#include "is_white_key.ipp"

@@ -11,4 +11,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "to_stereo.impl.hpp"
+#include "to_stereo.ipp"

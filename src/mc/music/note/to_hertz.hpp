@@ -15,4 +15,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "to_hertz.impl.hpp"
+#include "to_hertz.ipp"

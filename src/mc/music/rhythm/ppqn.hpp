@@ -23,4 +23,4 @@ private:
 
 }  // namespace mc
 
-#include "ppqn.impl.hpp"
+#include "ppqn.ipp"

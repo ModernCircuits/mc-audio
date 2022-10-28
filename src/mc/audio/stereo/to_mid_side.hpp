@@ -11,4 +11,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "to_mid_side.impl.hpp"
+#include "to_mid_side.ipp"

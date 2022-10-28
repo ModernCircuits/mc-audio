@@ -12,4 +12,4 @@ namespace mc {
 
 }  // namespace mc
 
-#include "is_major.impl.hpp"
+#include "is_major.ipp"

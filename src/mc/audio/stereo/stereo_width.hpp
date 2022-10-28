@@ -23,4 +23,4 @@ private:
 };
 }  // namespace mc
 
-#include "stereo_width.impl.hpp"
+#include "stereo_width.ipp"

@@ -56,4 +56,4 @@ struct fmt::formatter<mc::Note>
     char presentation = 'n';
 };
 
-#include "note.impl.hpp"
+#include "note.ipp"

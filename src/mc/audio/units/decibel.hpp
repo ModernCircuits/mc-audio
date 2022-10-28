@@ -41,4 +41,4 @@ template<typename T>
 
 }  // namespace mc
 
-#include "decibel.impl.hpp"
+#include "decibel.ipp"
