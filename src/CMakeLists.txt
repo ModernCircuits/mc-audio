@@ -1,12 +1,9 @@
 # SPDX-License-Identifier: BSL-1.0
 
 cmake_minimum_required(VERSION 3.21)
-project(mc-audio VERSION 0.11.0)
+project(mc-audio VERSION 0.12.0)
 
 find_package(mc-core REQUIRED)
-find_package(drflac REQUIRED)
-find_package(drmp3 REQUIRED)
-find_package(drwav REQUIRED)
 
 add_library(mc-audio INTERFACE)
 add_library(mc::audio ALIAS mc-audio)
@@ -20,9 +17,6 @@ target_include_directories(mc-audio
 target_link_libraries(mc-audio
     INTERFACE
         mc::core
-        drflac::drflac
-        drmp3::drmp3
-        drwav::drwav
 )
 
 if(EMSCRIPTEN)

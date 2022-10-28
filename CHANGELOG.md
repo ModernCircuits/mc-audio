@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.12.0 (tbd)
+## 0.12.0 (2022-10-28)
 
 - `music`: Add Semitones interval unit type
 - `music`: Chord classification functions
