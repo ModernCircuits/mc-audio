@@ -19,7 +19,7 @@ class ModernCircuitsAudio(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     requires = [
-        "mc-core/0.13.0@modern-circuits/stable",
+        "mc-core/0.14.0@modern-circuits/stable",
     ]
 
     @property

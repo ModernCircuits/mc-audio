@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.0 (tbd)
+
+- Update mc-core to 0.14.0
+
 ## 0.12.0 (2022-10-28)
 
 - `music`: Add Semitones interval unit type
