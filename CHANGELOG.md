@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.13.0 (tbd)
+## 0.13.0 (2023-02-28)
 
 - Update mc-core to 0.14.0
 
